@@ -152,7 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (productSliderWrapper && productPrevBtn && productNextBtn) {
         const getStep = () => {
             const visibleItem = productSliderWrapper.querySelector('.product-item:not([style*="display: none"])');
-            return visibleItem ? visibleItem.offsetWidth + 24 : productSliderWrapper.clientWidth / 3;
+            if (!visibleItem) return productSliderWrapper.clientWidth / 3;
+            const track = productSliderWrapper.querySelector('.product-slider-track');
+            const gap = track ? parseFloat(window.getComputedStyle(track).gap) || 16 : 16;
+            return visibleItem.offsetWidth + gap;
         };
 
         const slideNext = () => {
@@ -175,15 +178,20 @@ document.addEventListener('DOMContentLoaded', () => {
         productNextBtn.addEventListener('click', slideNext);
         productPrevBtn.addEventListener('click', slidePrev);
 
-        // Auto-moving (Auto-play every 2.0 seconds)
-        let autoPlayTimer = setInterval(slideNext, 2000);
+        // Auto-moving (Auto-play every 4.5 seconds for comfortable reading)
+        let autoPlayTimer = setInterval(slideNext, 4500);
 
-        // Pause auto-moving on hover
+        // Pause auto-moving on hover & touch interaction
         productSliderWrapper.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
         productSliderWrapper.addEventListener('mouseleave', () => {
             clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(slideNext, 2000);
+            autoPlayTimer = setInterval(slideNext, 4500);
         });
+        productSliderWrapper.addEventListener('touchstart', () => clearInterval(autoPlayTimer), { passive: true });
+        productSliderWrapper.addEventListener('touchend', () => {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = setInterval(slideNext, 4500);
+        }, { passive: true });
     }
 
     // 5. Hero Interactive Climate Mode Selector

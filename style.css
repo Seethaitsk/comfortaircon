@@ -59,6 +59,7 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  overflow-x: hidden !important;
   background-color: #0B0F17 !important;
 }
 
@@ -498,7 +499,7 @@ a {
 .hero-section {
   position: relative;
   background: linear-gradient(135deg, #F0F6FF 0%, #E8F2FD 50%, #F5F8FF 100%);
-  padding: 10px 0 45px;
+  padding: 30px 0 50px;
   overflow: hidden;
 }
 
@@ -751,7 +752,7 @@ a {
 
 @media (min-width: 992px) {
   .hero-img-container {
-    margin-top: -35px;
+    margin-top: 0;
     margin-bottom: 0;
   }
 
@@ -2020,10 +2021,14 @@ a {
   }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .product-item {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    scroll-snap-align: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -2078,14 +2083,27 @@ a {
 
 @media (max-width: 767.98px) {
   .product-slider-outer-wrapper {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .slider-arrow-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 0.95rem;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.85rem !important;
+    top: 115px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+    z-index: 25 !important;
+  }
+
+  .slider-arrow-left {
+    left: 8px !important;
+  }
+
+  .slider-arrow-right {
+    right: 8px !important;
   }
 }
 
@@ -2195,7 +2213,7 @@ a {
 
 @media (max-width: 991.98px) {
   .hero-section {
-    padding: 16px 0 35px;
+    padding: 24px 0 40px;
   }
 
   .hero-title {
@@ -2259,7 +2277,13 @@ a {
     letter-spacing: 0.5px !important;
   }
 
+  .footer-section {
+    padding-top: 55px !important;
+  }
+
   .footer-bottom {
+    margin-top: 35px !important;
+    padding: 18px 0 !important;
     word-break: break-word;
   }
 
@@ -3019,100 +3043,41 @@ a {
   color: #FFFFFF !important;
 }
 
-/* MOBILE STICKY BOTTOM ACTION BAR (CALL & WHATSAPP) */
+/* MOBILE STICKY BOTTOM ACTION BAR (HIDDEN IN FAVOR OF FLOATING BUTTONS) */
 .mobile-bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  background: #FFFFFF;
-  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.12);
-  z-index: 1099;
-  display: none;
-  align-items: center;
-  justify-content: space-around;
-  padding: 6px 12px;
-  border-top: 1px solid #E2E8F0;
-}
-
-.mobile-bar-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  height: 100%;
-  padding: 4px 6px;
-  border-radius: 8px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-decoration: none !important;
-  border: none;
-  background: transparent;
-  transition: var(--transition-fast);
-}
-
-.mobile-bar-btn i {
-  font-size: 1.25rem;
-}
-
-.mobile-bar-call {
-  color: var(--accent-orange) !important;
-}
-
-.mobile-bar-call:active,
-.mobile-bar-call:hover {
-  background: rgba(211, 20, 39, 0.08);
-}
-
-.mobile-bar-whatsapp {
-  color: #128C7E !important;
-}
-
-.mobile-bar-whatsapp:active,
-.mobile-bar-whatsapp:hover {
-  background: rgba(37, 211, 102, 0.1);
-}
-
-.mobile-bar-enquire {
-  color: var(--primary-blue) !important;
-}
-
-.mobile-bar-enquire:active,
-.mobile-bar-enquire:hover {
-  background: rgba(0, 120, 191, 0.08);
+  display: none !important;
 }
 
 @media (max-width: 767.98px) {
   .mobile-bottom-bar {
-    display: flex !important;
+    display: none !important;
   }
   
   body {
-    padding-bottom: 64px !important;
+    padding-bottom: 0 !important;
   }
   
   .floating-whatsapp-btn {
-    bottom: 76px !important;
-    right: 16px !important;
-    width: 50px !important;
-    height: 50px !important;
+    bottom: 16px !important;
+    right: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 1040 !important;
   }
   .floating-whatsapp-btn i {
-    font-size: 1.6rem !important;
+    font-size: 1.4rem !important;
   }
   
   .floating-call-btn {
     display: flex !important; /* Visible on mobile devices */
-    bottom: 136px !important;
-    right: 16px !important;
-    width: 50px !important;
-    height: 50px !important;
+    bottom: 68px !important;
+    right: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 1040 !important;
   }
   .floating-call-btn i {
-    font-size: 1.35rem !important;
+    font-size: 1.15rem !important;
   }
 }
 
@@ -3275,4 +3240,287 @@ body.maintenance-page {
   color: #FFFFFF !important;
   border-color: #25D366;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+/* Explore All Services CTA Base Desktop Style */
+.explore-services-btn {
+  padding: 14px 34px !important;
+  font-size: 1.05rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   MOBILE VIEW OPTIMIZATIONS (Max-Width: 767.98px & 575.98px)
+   Enhanced alignment for:
+   1. Explore All Services CTA button
+   2. Product Card Action Bar (Specs, Enquire Now, WhatsApp)
+   3. Product Card Category Badge & Star Rating
+   4. Service Card "View Details" Links
+   5. Interactive Hero Climate Simulator Box
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+  /* 1. Explore All Services CTA Button */
+  .explore-services-btn,
+  a[href="services.html"].btn-custom-primary.btn-lg {
+    font-size: 0.95rem !important;
+    padding: 12px 24px !important;
+    max-width: 92% !important;
+    white-space: normal !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    line-height: 1.35 !important;
+    box-shadow: 0 4px 16px rgba(0, 120, 191, 0.25) !important;
+  }
+
+  /* 2. Product Slider Track & Cards Full Width */
+  .products-section {
+    padding: 60px 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .products-section .container-xxl {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .product-slider-outer-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .product-slider-wrapper {
+    width: 100% !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 4px 0 16px 0 !important;
+  }
+
+  .product-slider-track {
+    margin: 0 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    padding: 0 2px 8px 2px !important;
+  }
+
+  .product-item {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    scroll-snap-align: center !important;
+  }
+
+  .product-card {
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .product-enquire-bar {
+    flex-wrap: nowrap !important;
+    gap: 5px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* 1. Explore All Services CTA Button on small mobile */
+  .explore-services-btn,
+  a[href="services.html"].btn-custom-primary.btn-lg {
+    font-size: 0.88rem !important;
+    padding: 11px 18px !important;
+    border-radius: 16px !important;
+    max-width: 96% !important;
+    gap: 8px !important;
+    line-height: 1.32 !important;
+  }
+
+  .explore-services-btn i,
+  a[href="services.html"].btn-custom-primary.btn-lg i {
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 2. Product Card Action Bar (Specs + Enquire Now + WhatsApp) */
+  .product-card .p-4 {
+    padding: 1.1rem 0.95rem !important;
+  }
+
+  .product-card .pt-3.border-top {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding-top: 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .product-card .btn-quick-spec {
+    padding: 6px 9px !important;
+    font-size: 0.74rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    border-radius: 50px !important;
+  }
+
+  .product-card .btn-quick-spec i {
+    font-size: 0.72rem !important;
+  }
+
+  .product-enquire-bar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+    justify-content: flex-end !important;
+  }
+
+  .product-enquire-bar .btn-enquire-product {
+    padding: 6px 9px !important;
+    font-size: 0.74rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+  }
+
+  .product-enquire-bar a.btn-success {
+    padding: 6px 8px !important;
+    font-size: 0.8rem !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* 3. Product Card Badge Header & Star Rating */
+  .product-card .d-flex.justify-content-between.align-items-center.mb-2 {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+
+  .badge-soft-blue,
+  .badge-soft-danger,
+  .badge-soft-green,
+  .badge-soft-purple,
+  .badge-soft-warning {
+    font-size: 0.72rem !important;
+    padding: 4px 8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .product-card .text-warning.small {
+    font-size: 0.74rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    text-align: right !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 4. Service Card "View Details" Links */
+  .service-card-body {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  .btn-service-link {
+    font-size: 0.8rem !important;
+    padding: 8px 12px !important;
+    letter-spacing: -0.015em !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    border-radius: 50px !important;
+  }
+
+  .btn-service-link i {
+    font-size: 0.75rem !important;
+  }
+
+  /* 5. Interactive Hero Climate Simulator Box */
+  .hero-climate-box {
+    padding: 12px 10px !important;
+    border-radius: 16px !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .hero-climate-box > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .hero-mode-bar {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 2px !important;
+    padding: 3px !important;
+    border-radius: 50px !important;
+  }
+
+  .hero-mode-pill {
+    flex: 1 1 0 !important;
+    font-size: 0.69rem !important;
+    padding: 6px 2px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50px !important;
+  }
+
+  .hero-mode-pill i {
+    font-size: 0.7rem !important;
+    margin-right: 3px !important;
+  }
+
+  .climate-simulator-bar {
+    align-self: center !important;
+    margin: 0 auto !important;
+    padding: 3px 18px !important;
+    background: #FFFFFF !important;
+    border-radius: 50px !important;
+  }
+
+  .temp-val-display {
+    font-size: 0.95rem !important;
+    padding: 0 10px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-mode-pill {
+    font-size: 0.63rem !important;
+    padding: 5px 1px !important;
+  }
+  
+  .hero-mode-pill i {
+    margin-right: 2px !important;
+  }
 }
