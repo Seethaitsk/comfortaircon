@@ -301,18 +301,18 @@ a {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
-  padding: 14px 0;
+  padding: 11px 0;
   transition: var(--transition-fast);
 }
 
 .navbar-hvac.scrolled {
-  padding: 10px 0;
+  padding: 8px 0;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
 }
 
 .navbar-logo-img {
-  height: 68px;
-  max-height: 68px;
+  height: 64px;
+  max-height: 64px;
   width: auto;
   object-fit: contain;
   mix-blend-mode: multiply;
@@ -320,8 +320,8 @@ a {
 }
 
 .navbar-hvac.scrolled .navbar-logo-img {
-  height: 56px;
-  max-height: 56px;
+  height: 54px;
+  max-height: 54px;
 }
 
 .footer-logo-box {
@@ -383,13 +383,14 @@ a {
   font-size: 0.96rem;
   color: #1E293B;
   padding: 8px 18px !important;
-  border-radius: 10px;
+  border-radius: 50px;
   position: relative;
   white-space: nowrap !important;
   transition: var(--transition-fast);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 7px;
 }
 
 .navbar-hvac .nav-link:hover {
@@ -398,21 +399,19 @@ a {
 }
 
 .navbar-hvac .nav-link.active {
-  color: #0F172A;
+  color: #0078BF !important;
   font-weight: 700;
-  background-color: #EEF7FC;
+  background-color: #EDF5FD !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+}
+
+.navbar-hvac .nav-link.active i {
+  color: #0078BF !important;
 }
 
 .navbar-hvac .nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 28px;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #0078BF 0%, #D31427 100%);
+  display: none !important;
 }
 
 .nav-phone-btn-outline {
@@ -499,7 +498,7 @@ a {
 .hero-section {
   position: relative;
   background: linear-gradient(135deg, #F0F6FF 0%, #E8F2FD 50%, #F5F8FF 100%);
-  padding: 40px 0 60px;
+  padding: 10px 0 45px;
   overflow: hidden;
 }
 
@@ -752,7 +751,7 @@ a {
 
 @media (min-width: 992px) {
   .hero-img-container {
-    margin-top: -20px;
+    margin-top: -35px;
     margin-bottom: 0;
   }
 
@@ -780,7 +779,7 @@ a {
 .hero-banner-carousel {
   position: relative;
   width: 100%;
-  max-width: 580px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -790,7 +789,7 @@ a {
 }
 
 .hero-banner-carousel .carousel-item {
-  height: 480px;
+  height: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -811,12 +810,24 @@ a {
 }
 
 .hero-banner-carousel .hero-main-img {
-  max-height: 470px;
-  width: auto;
+  max-height: 550px;
+  width: 100%;
   max-width: 100%;
   object-fit: contain;
   margin: 0 auto;
   filter: drop-shadow(0 15px 35px rgba(0, 120, 191, 0.16));
+}
+
+@media (min-width: 1200px) {
+  .hero-banner-carousel {
+    max-width: 720px;
+  }
+  .hero-banner-carousel .carousel-item {
+    height: 580px;
+  }
+  .hero-banner-carousel .hero-main-img {
+    max-height: 580px;
+  }
 }
 
 .hero-carousel-indicators {
@@ -886,10 +897,10 @@ a {
 
 @media (max-width: 991.98px) {
   .hero-banner-carousel .carousel-item {
-    height: 380px;
+    height: 420px;
   }
   .hero-banner-carousel .hero-main-img {
-    max-height: 380px;
+    max-height: 420px;
   }
   .hero-carousel-arrow {
     display: none;
@@ -898,10 +909,10 @@ a {
 
 @media (max-width: 575.98px) {
   .hero-banner-carousel .carousel-item {
-    height: 290px;
+    height: 330px;
   }
   .hero-banner-carousel .hero-main-img {
-    max-height: 290px;
+    max-height: 330px;
   }
 }
 
@@ -2184,7 +2195,7 @@ a {
 
 @media (max-width: 991.98px) {
   .hero-section {
-    padding: 30px 0 45px;
+    padding: 16px 0 35px;
   }
 
   .hero-title {
@@ -2900,7 +2911,7 @@ a {
 }
 
 .btn-area-whatsapp {
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
   color: #FFFFFF !important;
   font-weight: 700;
   font-size: 0.88rem;
@@ -2908,22 +2919,21 @@ a {
   border-radius: 50px;
   width: 100%;
   text-align: center;
-  border: 1px solid #25D366;
+  border: none !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   transition: var(--transition-fast);
   text-decoration: none !important;
-  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
 .btn-area-whatsapp:hover {
-  background: #1eb956;
+  background: linear-gradient(135deg, #128C7E 0%, #075E54 100%) !important;
   color: #FFFFFF !important;
-  border-color: #1eb956;
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(18, 140, 126, 0.45);
+  transform: translateY(-2px);
 }
 
 /* Service Area Pin Code / Town Search Tool */
