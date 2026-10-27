@@ -2083,6 +2083,107 @@ a {
   backdrop-filter: blur(8px);
 }
 
+/* Why Choose Us - Overlapping Dual Image Showcase (Ref: 1st Image) */
+.why-images-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  padding-right: 20px;
+}
+
+.why-main-img-box {
+  width: 86%;
+  height: 500px;
+  border-radius: 24px !important;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(15, 23, 42, 0.6);
+  position: relative;
+}
+
+.why-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-images-wrapper:hover .why-main-img {
+  transform: scale(1.03);
+}
+
+.why-overlap-img-box {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  height: 230px;
+  border-radius: 20px !important;
+  overflow: hidden;
+  border: 5px solid #FFFFFF;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+  background: #FFFFFF;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.why-images-wrapper:hover .why-overlap-img-box {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 52px rgba(0, 0, 0, 0.55);
+}
+
+.why-overlap-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 991.98px) {
+  .why-images-wrapper {
+    max-width: 480px;
+    margin: 20px auto 0 auto;
+    padding-bottom: 30px;
+    padding-right: 15px;
+  }
+  .why-main-img-box {
+    width: 86%;
+    height: 420px;
+    border-radius: 20px !important;
+  }
+  .why-overlap-img-box {
+    width: 62%;
+    height: 195px;
+    border-radius: 18px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .why-images-wrapper {
+    max-width: 100%;
+    padding-bottom: 25px;
+    padding-right: 10px;
+  }
+  .why-main-img-box {
+    width: 84%;
+    height: 330px;
+    border-radius: 18px !important;
+  }
+  .why-overlap-img-box {
+    width: 64%;
+    height: 155px;
+    border-radius: 16px !important;
+    border-width: 4px;
+    bottom: 0;
+  }
+}
+
 /* 9.5 TESTIMONIALS SECTION (Reference 1 Layout & Auto Slider Card) */
 .testimonial-ref-section {
   padding: 100px 0 110px 0;

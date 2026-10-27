@@ -13,8 +13,8 @@ export default function Hero() {
       alt: 'Comfort Aircon Carrier Living Room AC Cooling',
     },
     {
-      src: '/images/ban3.png',
-      alt: 'Carrier High-Efficiency All-Weather Inverter AC',
+      src: '/images/ban1.png',
+      alt: 'Comfort Aircon High-Efficiency Inverter AC Cooling',
     },
     {
       src: '/images/ban4.png',

@@ -87,15 +87,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (modalAppointmentForm) {
+        const modalLocationSelect = document.getElementById('modalLocationSelect');
+        const modalOtherLocationBox = document.getElementById('modalOtherLocationBox');
+        const modalMessageArea = document.getElementById('modalMessageArea');
+        const modalMsgCount = document.getElementById('modalMsgCount');
+
+        if (modalLocationSelect && modalOtherLocationBox) {
+            modalLocationSelect.addEventListener('change', (e) => {
+                if (e.target.value === 'Other') {
+                    modalOtherLocationBox.style.display = 'block';
+                    const input = modalOtherLocationBox.querySelector('input');
+                    if (input) input.required = true;
+                } else {
+                    modalOtherLocationBox.style.display = 'none';
+                    const input = modalOtherLocationBox.querySelector('input');
+                    if (input) input.required = false;
+                }
+            });
+        }
+
+        if (modalMessageArea && modalMsgCount) {
+            modalMessageArea.addEventListener('input', (e) => {
+                modalMsgCount.textContent = `${e.target.value.length} / 500 characters`;
+            });
+        }
+
         modalAppointmentForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            showNotification(`Consultation requested successfully! Our HVAC specialist will confirm your schedule shortly.`);
+            showNotification(`Enquiry submitted successfully! Our HVAC specialist will follow up shortly.`);
             const modalEl = document.getElementById('appointmentModal');
             if (modalEl && typeof bootstrap !== 'undefined') {
                 const modal = bootstrap.Modal.getInstance(modalEl);
                 if (modal) modal.hide();
             }
             modalAppointmentForm.reset();
+            if (modalOtherLocationBox) modalOtherLocationBox.style.display = 'none';
+            if (modalMsgCount) modalMsgCount.textContent = '0 / 500 characters';
         });
     }
 

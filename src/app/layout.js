@@ -13,9 +13,12 @@ export const metadata = {
   description:
     'Premier HVAC engineering solutions provider & official Carrier & Toshiba partner in Puducherry. Explore company profile, technical expertise, VRF systems, cassette ACs, and turnkey commercial cooling solutions.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
     shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    apple: '/apple-touch-icon.png',
   },
 };
 

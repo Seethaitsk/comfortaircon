@@ -30,31 +30,27 @@ export default function WhyChooseUs() {
     <section className="why-choose-us-section" id="why-choose-us">
       <div className="container-xxl">
         <div className="row align-items-center gy-5">
-          {/* Left Column (on Desktop): Energy Efficiency Upgrade Image Card */}
+          {/* Left Column (on Desktop): Overlapping Dual Image Showcase (Matching 1st Reference Image) */}
           <div className="col-lg-6 order-lg-1 order-2">
-            <div className="p-4 rounded-4 bg-white text-dark shadow-lg">
-              <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-                <h4 className="fw-bold mb-0 text-dark-navy">
-                  <i className="fa-solid fa-chart-line text-primary-blue me-2"></i>
-                  Energy Efficiency Upgrade
-                </h4>
-                <span className="badge bg-success text-white">Save Up To 50%</span>
+            <div className="why-images-wrapper position-relative">
+              {/* Main Primary Image: Certified Technician Servicing Ceiling AC */}
+              <div className="why-main-img-box rounded-4 overflow-hidden shadow-lg">
+                <img
+                  src="/images/why1.png"
+                  alt="Certified Comfort Aircon HVAC Technician Servicing Ceiling AC"
+                  className="img-fluid w-100 h-100 object-fit-cover why-main-img"
+                  loading="lazy"
+                />
               </div>
-              <img
-                src="/images/livingroom.png"
-                alt="Comfort Aircon Energy Saving Living Room Installation"
-                className="img-fluid rounded-3 mb-3 border"
-              />
-              <div className="d-flex flex-wrap justify-content-between align-items-center gap-2">
-                <div className="d-flex flex-wrap gap-1">
-                  <span className="badge bg-secondary me-1 mb-1">Old AC: 12 SEER</span>
-                  <span className="badge bg-success mb-1">
-                    Carrier 5-Star: 22 SEER Inverter
-                  </span>
-                </div>
-                <strong className="text-primary-blue fs-6">
-                  Significantly Lower Power Bills
-                </strong>
+
+              {/* Overlapping Secondary Image: Technical Maintenance Setup */}
+              <div className="why-overlap-img-box position-absolute rounded-4 overflow-hidden shadow-2xl">
+                <img
+                  src="/images/why2.png"
+                  alt="Precision AC Technical Installation and Maintenance Setup"
+                  className="img-fluid w-100 h-100 object-fit-cover why-overlap-img"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

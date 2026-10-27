@@ -182,7 +182,7 @@
                                     class="hero-main-img img-fluid d-block mx-auto">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/ban3.png" alt="Carrier High-Efficiency All-Weather Inverter AC"
+                                <img src="images/ban1.png" alt="Comfort Aircon High-Efficiency Inverter AC Cooling"
                                     class="hero-main-img img-fluid d-block mx-auto">
                             </div>
                             <div class="carousel-item">
@@ -2433,33 +2433,123 @@
 
     <!-- Appointment Modal -->
     <div class="modal fade" id="appointmentModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 rounded-4 shadow-lg">
-                <div class="modal-header bg-dark-navy text-white rounded-top-4">
-                    <h5 class="modal-title fw-bold"><i
-                            class="fa-solid fa-calendar-check me-2 text-primary-blue"></i>Book HVAC Appointment
-                    </h5>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+                <div class="modal-header bg-dark-navy text-white rounded-top-4 py-3 px-4">
+                    <div>
+                        <h5 class="modal-title fw-bold fs-5 mb-0 d-flex align-items-center">
+                            <i class="fa-solid fa-clipboard-question me-2 text-primary-blue"></i>Comfort Aircon - Enquire Now
+                        </h5>
+                        <small class="text-light opacity-75">
+                            Authorized Carrier &amp; Toshiba Sales &amp; Service • Rapid 15-Min Response
+                        </small>
+                    </div>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
                     <form id="modalAppointmentForm">
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold">Full Name</label>
-                            <input type="text" class="form-control form-control-custom" required
-                                placeholder="John Smith">
+                        <div class="row g-3">
+                            <!-- 1. Customer Name -->
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-dark-navy mb-1">Customer Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-custom" required
+                                    pattern="^[A-Za-z\s.'-]+$" title="Customer full name (letters and spaces only)"
+                                    placeholder="e.g. Ramesh Kumar">
+                                <div class="form-text small text-muted">Customer full name (letters and spaces)</div>
+                            </div>
+
+                            <!-- 2. Mobile Number -->
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-dark-navy mb-1">Mobile Number <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0 fw-semibold text-secondary">+91</span>
+                                    <input type="tel" class="form-control form-control-custom border-start-0" required
+                                        pattern="^[6-9]\d{9}$" maxlength="10"
+                                        title="10-digit Indian mobile number"
+                                        placeholder="98430 12345">
+                                </div>
+                                <div class="form-text small text-muted">10-digit Indian mobile — for call / WhatsApp follow-up</div>
+                            </div>
+
+                            <!-- 3. Email Address -->
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-dark-navy mb-1">Email Address <span class="text-muted fw-normal">(Optional)</span></label>
+                                <input type="email" class="form-control form-control-custom"
+                                    placeholder="e.g. ramesh@example.com">
+                                <div class="form-text small text-muted">Optional reply email</div>
+                            </div>
+
+                            <!-- 4. Service Required -->
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-dark-navy mb-1">Service Required <span class="text-danger">*</span></label>
+                                <select class="form-select form-control-custom" required>
+                                    <option value="">-- Select Service Required --</option>
+                                    <option value="AC Installation">AC Installation</option>
+                                    <option value="Repair">Repair</option>
+                                    <option value="Service & Maintenance">Service & Maintenance</option>
+                                    <option value="Gas Filling">Gas Filling</option>
+                                    <option value="Cleaning & Troubleshooting">Cleaning & Troubleshooting</option>
+                                    <option value="Replacement">Replacement</option>
+                                    <option value="Annual Maintenance">Annual Maintenance</option>
+                                    <option value="Commercial AC Services">Commercial AC Services</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="form-text small text-muted">Select the primary service needed</div>
+                            </div>
+
+                            <!-- 5. Product Interested In -->
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-dark-navy mb-1">Product Interested In <span class="text-muted fw-normal">(Optional)</span></label>
+                                <select class="form-select form-control-custom" id="modalProductSelect">
+                                    <option value="">-- Select Product (Optional) --</option>
+                                    <option value="Carrier Split Room AC">Carrier Split Room AC</option>
+                                    <option value="Carrier 4-Way Cassette AC">Carrier 4-Way Cassette AC</option>
+                                    <option value="Carrier Concealed Ductable AC">Carrier Concealed Ductable AC</option>
+                                    <option value="Carrier Commercial VRF System">Carrier Commercial VRF System</option>
+                                    <option value="Toshiba SMMS-u Japanese VRF">Toshiba SMMS-u Japanese VRF</option>
+                                </select>
+                                <div class="form-text small text-muted">Published products; auto-filled when Enquire is clicked on a product</div>
+                            </div>
+
+                            <!-- 6. Location -->
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-dark-navy mb-1">Location <span class="text-danger">*</span></label>
+                                <select class="form-select form-control-custom" id="modalLocationSelect" required>
+                                    <option value="">-- Select Location --</option>
+                                    <option value="Pondicherry">Pondicherry</option>
+                                    <option value="Villupuram">Villupuram</option>
+                                    <option value="Cuddalore">Cuddalore</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div id="modalOtherLocationBox" class="mt-2" style="display: none;">
+                                    <input type="text" class="form-control form-control-custom" placeholder="Please enter your town / locality">
+                                </div>
+                                <div class="form-text small text-muted">Pondicherry; Villupuram; Cuddalore; Other (+ text box)</div>
+                            </div>
+
+                            <!-- 7. Message -->
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label small fw-bold text-dark-navy mb-0">Message <span class="text-muted fw-normal">(Optional)</span></label>
+                                    <span class="small text-muted" id="modalMsgCount">0 / 500 characters</span>
+                                </div>
+                                <textarea rows="3" maxlength="500" class="form-control form-control-custom" id="modalMessageArea"
+                                    placeholder="Extra details regarding room size, tonnage requirements, issues faced, or preferred visit time..."></textarea>
+                                <div class="form-text small text-muted">Extra details — maximum 500 characters</div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold">Phone Number</label>
-                            <input type="tel" class="form-control form-control-custom" required
-                                placeholder="(555) 123-4567">
+
+                        <div class="pt-3 mt-3 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                            <div class="small text-muted d-flex align-items-center">
+                                <i class="fa-solid fa-shield-halved text-success me-2 fs-5"></i>
+                                <span>Zero spam. Direct engineer callback.</span>
+                            </div>
+                            <button type="submit" class="btn btn-custom-accent px-5 py-3 fw-bold rounded-pill shadow-sm d-inline-flex align-items-center justify-content-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Submit Enquiry</span>
+                            </button>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold">Preferred Date</label>
-                            <input type="date" class="form-control form-control-custom" required>
-                        </div>
-                        <button type="submit" class="btn btn-custom-accent w-100 py-2 mt-2">Confirm Appointment
-                            Booking</button>
                     </form>
                 </div>
             </div>
