@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react';
 import { useModal } from '@/context/ModalContext';
 
@@ -9,16 +10,16 @@ export default function Hero() {
 
   const slides = [
     {
-      src: '/images/career banner.png',
-      alt: 'Carrier AC Dealership Solutions Banner',
+      src: '/images/ban2.png',
+      alt: 'Carrier AC Living Room Cooling Solutions',
     },
     {
-      src: '/images/catrrt nanner2.png',
-      alt: 'Comfort Aircon Cooling Solutions Banner',
+      src: '/images/ban3.png',
+      alt: 'Comfort Aircon Carrier Winter & Summer Climate Control',
     },
     {
-      src: '/images/banner3.png',
-      alt: 'Carrier Air Conditioning Technology Banner',
+      src: '/images/ban4.png',
+      alt: 'Carrier Air Conditioning Bedroom Comfort',
     },
   ];
 
@@ -31,7 +32,7 @@ export default function Hero() {
 
   return (
     <section
-      className="hero-section pt-2 pt-lg-2 pb-4 pb-lg-5 position-relative overflow-hidden"
+      className="hero-section py-0 position-relative overflow-hidden"
       id="home"
     >
       {/* Live Ambient Animated Waves & Background Glows */}
@@ -41,12 +42,12 @@ export default function Hero() {
       </div>
 
       <div className="container-xxl position-relative z-2">
-        <div className="row align-items-center gy-4 gy-lg-5">
+        <div className="row align-items-stretch gy-4 gy-lg-0 min-vh-hero">
           {/* Left Column: Content & Interactive Controls */}
-          <div className="col-lg-6 hero-content">
+          <div className="col-lg-6 hero-content py-4 py-lg-5 d-flex flex-column justify-content-center">
             {/* Status Badge */}
-            <div className="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-primary-subtle text-primary fw-bold small mb-3 border border-primary-subtle shadow-xs">
-              <span className="pulse-dot"></span> Authorized Carrier & Toshiba AC Dealership
+            <div className="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-primary-subtle text-primary fw-bold small mb-3 border border-primary-subtle shadow-xs w-fit">
+              <span className="pulse-dot"></span> Authorized Carrier &amp; Toshiba AC Dealership
             </div>
 
             {/* Main Heading */}
@@ -121,22 +122,22 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual & Interactive Banner Carousel */}
-          <div className="col-lg-6 hero-img-container position-relative">
+          {/* Right Column: Hero Visual & Banner Carousel (Covers Hero Section Top to Bottom) */}
+          <div className="col-lg-6 hero-img-container position-relative d-flex align-items-stretch">
             {/* Soft Ambient Radial Glow Orb */}
             <div className="hero-img-glow"></div>
 
             {/* Hero Section 3-Banner Slider Carousel */}
             <div
               id="heroBannerCarousel"
-              className="carousel slide carousel-fade hero-banner-carousel position-relative z-2"
+              className="carousel slide carousel-fade hero-banner-carousel position-relative z-2 w-100"
             >
               {/* Carousel Slides */}
-              <div className="carousel-inner">
+              <div className="carousel-inner h-100 w-100">
                 {slides.map((slide, idx) => (
                   <div
                     key={slide.src}
-                    className={`carousel-item ${idx === currentSlide ? 'active' : ''}`}
+                    className={`carousel-item h-100 w-100 ${idx === currentSlide ? 'active' : ''}`}
                   >
                     <img
                       src={slide.src}
@@ -147,8 +148,6 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-
-
             </div>
           </div>
         </div>
