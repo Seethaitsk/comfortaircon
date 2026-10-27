@@ -3,6 +3,16 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Initialize AOS (Animate On Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic'
+        });
+    }
+
     // Elements
     const mainNav = document.getElementById('mainNav');
     const estServiceSelect = document.getElementById('estService');
@@ -368,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const prodName = btn.getAttribute('data-product-name');
             const modalTitle = document.querySelector('#appointmentModal .modal-title');
             if (modalTitle && prodName) {
-                modalTitle.innerHTML = `<i class="fa-solid fa-file-invoice-dollar me-2 text-accent-orange"></i>Enquire: ${prodName}`;
+                modalTitle.innerHTML = `<i class="fa-solid fa-file-invoice-dollar me-2 text-primary-blue"></i>Enquire: ${prodName}`;
             }
         });
     });
@@ -426,5 +436,268 @@ document.addEventListener('DOMContentLoaded', () => {
             wrap: true,
             pause: 'hover'
         });
+    }
+
+    // 13. Testimonial Auto Slider Card (Reference 1 Layout)
+    const testimonialTrack = document.getElementById('testimonialSliderTrack');
+    const testimonialDots = document.getElementById('testimonialSliderDots');
+    const testimonialPrevBtn = document.getElementById('testimonialPrevBtn');
+    const testimonialNextBtn = document.getElementById('testimonialNextBtn');
+
+    if (testimonialTrack) {
+        const tCards = testimonialTrack.querySelectorAll('.testimonial-slide-card');
+        const totalCards = tCards.length;
+        let currentTIndex = 0;
+        let tAutoSlideTimer = null;
+
+        function getVisibleCount() {
+            return window.innerWidth >= 768 ? 2 : 1;
+        }
+
+        function getMaxIndex() {
+            return Math.max(0, totalCards - getVisibleCount());
+        }
+
+        function updateTestimonialSlider() {
+            const maxIdx = getMaxIndex();
+            if (currentTIndex > maxIdx) currentTIndex = 0;
+            if (currentTIndex < 0) currentTIndex = maxIdx;
+
+            const firstCard = tCards[0];
+            if (firstCard) {
+                const cardWidth = firstCard.offsetWidth;
+                const gap = 20; // 20px gap
+                const shift = currentTIndex * (cardWidth + gap);
+                testimonialTrack.style.transform = `translateX(-${shift}px)`;
+            }
+
+            // Update dots
+            if (testimonialDots) {
+                const dots = testimonialDots.querySelectorAll('.t-dot');
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === currentTIndex);
+                });
+            }
+        }
+
+        function buildDots() {
+            if (!testimonialDots) return;
+            testimonialDots.innerHTML = '';
+            const maxIdx = getMaxIndex();
+            for (let i = 0; i <= maxIdx; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = `t-dot ${i === currentTIndex ? 'active' : ''}`;
+                dot.setAttribute('aria-label', `Go to testimonial slide ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    currentTIndex = i;
+                    updateTestimonialSlider();
+                    resetTimer();
+                });
+                testimonialDots.appendChild(dot);
+            }
+        }
+
+        function nextTestimonial() {
+            const maxIdx = getMaxIndex();
+            currentTIndex = (currentTIndex >= maxIdx) ? 0 : currentTIndex + 1;
+            updateTestimonialSlider();
+        }
+
+        function prevTestimonial() {
+            const maxIdx = getMaxIndex();
+            currentTIndex = (currentTIndex <= 0) ? maxIdx : currentTIndex - 1;
+            updateTestimonialSlider();
+        }
+
+        function startTimer() {
+            if (!tAutoSlideTimer) {
+                tAutoSlideTimer = setInterval(nextTestimonial, 3500);
+            }
+        }
+
+        function stopTimer() {
+            if (tAutoSlideTimer) {
+                clearInterval(tAutoSlideTimer);
+                tAutoSlideTimer = null;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            startTimer();
+        }
+
+        if (testimonialNextBtn) testimonialNextBtn.addEventListener('click', () => { nextTestimonial(); resetTimer(); });
+        if (testimonialPrevBtn) testimonialPrevBtn.addEventListener('click', () => { prevTestimonial(); resetTimer(); });
+
+        const sliderBox = document.querySelector('.testimonial-slider-container');
+        if (sliderBox) {
+            sliderBox.addEventListener('mouseenter', stopTimer);
+            sliderBox.addEventListener('mouseleave', startTimer);
+
+            // Touch Swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            sliderBox.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopTimer();
+            }, { passive: true });
+            sliderBox.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 45) {
+                    nextTestimonial();
+                } else if (touchEndX - touchStartX > 45) {
+                    prevTestimonial();
+                }
+                startTimer();
+            }, { passive: true });
+        }
+
+        window.addEventListener('resize', () => {
+            buildDots();
+            updateTestimonialSlider();
+        });
+
+        buildDots();
+        updateTestimonialSlider();
+        startTimer();
+    }
+
+    // 13.5 Regional Service Areas Auto Slider (2 cards per slide group, automatic sliding)
+    const areaTrack = document.getElementById('areaSliderTrack');
+    const areaSliderContainer = document.querySelector('.area-slider-container');
+    const areaPrevBtn = document.getElementById('areaPrevBtn');
+    const areaNextBtn = document.getElementById('areaNextBtn');
+
+    if (areaTrack && !window.__areaSliderInitialized) {
+        window.__areaSliderInitialized = true;
+        const slideGroups = areaTrack.querySelectorAll('.area-slide-group');
+        const totalAreaSlides = slideGroups.length > 0 ? slideGroups.length : 2;
+        let currentAreaSlide = 0;
+        let areaTimer = null;
+
+        function updateAreaDots() {
+            const dots = document.querySelectorAll('#areaSliderDots .area-dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentAreaSlide);
+            });
+        }
+
+        function goToAreaSlide(index) {
+            currentAreaSlide = (index + totalAreaSlides) % totalAreaSlides;
+            areaTrack.style.transform = `translateX(-${currentAreaSlide * 100}%)`;
+            updateAreaDots();
+        }
+
+        function nextAreaSlide() {
+            goToAreaSlide(currentAreaSlide + 1);
+        }
+
+        function prevAreaSlide() {
+            goToAreaSlide(currentAreaSlide - 1);
+        }
+
+        function startAreaTimer() {
+            stopAreaTimer();
+            areaTimer = setInterval(nextAreaSlide, 3800);
+        }
+
+        function stopAreaTimer() {
+            if (areaTimer) {
+                clearInterval(areaTimer);
+                areaTimer = null;
+            }
+        }
+
+        function resetAreaTimer() {
+            stopAreaTimer();
+            startAreaTimer();
+        }
+
+        // Arrow navigation buttons
+        if (areaNextBtn) {
+            areaNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                nextAreaSlide();
+                resetAreaTimer();
+            });
+        }
+
+        if (areaPrevBtn) {
+            areaPrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prevAreaSlide();
+                resetAreaTimer();
+            });
+        }
+
+        // Dot navigation buttons
+        const areaDotsContainer = document.getElementById('areaSliderDots');
+        if (areaDotsContainer) {
+            areaDotsContainer.querySelectorAll('.area-dot').forEach((dot, idx) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    goToAreaSlide(idx);
+                    resetAreaTimer();
+                });
+            });
+        }
+
+        // Pause on mouse hover & resume on leave
+        if (areaSliderContainer) {
+            areaSliderContainer.addEventListener('mouseenter', stopAreaTimer);
+            areaSliderContainer.addEventListener('mouseleave', startAreaTimer);
+        }
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        areaTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAreaTimer();
+        }, { passive: true });
+
+        areaTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 40) {
+                nextAreaSlide();
+            } else if (touchEndX - touchStartX > 40) {
+                prevAreaSlide();
+            }
+            startAreaTimer();
+        }, { passive: true });
+
+        // Initialize state & start auto sliding
+        goToAreaSlide(0);
+        startAreaTimer();
+    }
+
+    // 9.6 Home Signature: Hero Rotating Subline
+    const heroRotatingEl = document.getElementById('heroRotatingSubline');
+    if (heroRotatingEl) {
+        const rotatingPhrases = [
+            '5-Star Inverter Split ACs',
+            'Toshiba Commercial VRF Systems',
+            'Architectural Cassette Units',
+            'Concealed Ductable Climate Care',
+            'Factory Certified 10-Yr Warranty'
+        ];
+        let currentPhraseIdx = 0;
+        setInterval(() => {
+            heroRotatingEl.classList.add('fade-out');
+            setTimeout(() => {
+                currentPhraseIdx = (currentPhraseIdx + 1) % rotatingPhrases.length;
+                heroRotatingEl.textContent = rotatingPhrases[currentPhraseIdx];
+                heroRotatingEl.classList.remove('fade-out');
+            }, 350);
+        }, 3600);
+    }
+});
+
+// Refresh AOS positions on full window load to account for loaded images
+window.addEventListener('load', () => {
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
     }
 });

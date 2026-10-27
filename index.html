@@ -9,13 +9,15 @@
         content="Premier HVAC engineering solutions provider & official Carrier & Toshiba partner in Puducherry. Explore company profile, technical expertise, VRF systems, cassette ACs, and turnkey commercial cooling solutions.">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans (Headings), DM Sans (Body), Noto Sans Tamil (Fallback) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+Tamil:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+Tamil:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5.3 CDN -->
@@ -23,6 +25,9 @@
 
     <!-- FontAwesome Icons 6.5.1 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate On Scroll) CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
@@ -36,7 +41,8 @@
     <nav class="navbar navbar-expand-xl navbar-hvac sticky-top" id="mainNav">
         <div class="container-xxl">
             <a class="navbar-brand d-flex align-items-center me-0 me-xl-4 py-0" href="#home">
-                <img src="images/logo.png" alt="Comfort Aircon - Authorized Carrier AC Dealer" class="navbar-logo-img">
+                <img src="images/logo1.png" alt="Comfort Aircon - Authorized Carrier & Toshiba Dealer"
+                    class="navbar-logo-img">
             </a>
 
             <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse"
@@ -93,50 +99,65 @@
 
                     <!-- Main Heading -->
                     <h1 class="hero-title fw-extrabold text-navy lh-sm mb-3">
-                        Pioneering <span class="animated-gradient-text">Carrier AC Dealership & Cooling Solutions</span>
-                        for Every Space
+                        Stay Cool <br><span class="animated-gradient-text">All Year Round</span>
                     </h1>
 
                     <!-- Subtitle / Company Introduction -->
-                    <p class="hero-subtitle fs-5 text-secondary mb-4 col-xl-11 lh-base">
-                        Welcome to <strong>Comfort Aircon</strong>, Puducherry’s trusted authorized dealer for Carrier
-                        and Toshiba ACs.
-                        We offer 5-Star inverter split ACs, cassette units, ductable systems, and commercial VRF
-                        solutions.
-                        Enjoy genuine factory warranties and certified installation across Pondicherry, Villupuram, and
-                        Cuddalore.
+                    <p class="hero-subtitle fs-5 text-secondary mb-4 lh-base">
+                        Reliable air conditioning and refrigeration solutions for homes, offices and businesses. Expert
+                        service, quality products, and your comfort is our priority. Authorized Carrier partner serving
+                        Pondicherry, Villupuram, and Cuddalore.
                     </p>
 
-                    <!-- Interactive Quick Climate Simulator Bar -->
-                    <div class="hero-climate-box card border-0 p-3 mb-4 max-w-md">
-                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
-                            <!-- Mode Selector Pill -->
-                            <div class="hero-mode-bar d-flex align-items-center gap-1 p-1 bg-light rounded-pill border">
-                                <button class="hero-mode-pill btn btn-sm rounded-pill active" data-mode="cool">
-                                    <i class="fa-solid fa-snowflake text-primary me-1"></i> Rapid Cooling
-                                </button>
-                                <button class="hero-mode-pill btn btn-sm rounded-pill" data-mode="optimal">
-                                    <i class="fa-solid fa-wind text-info me-1"></i> Optimal Climate
-                                </button>
-                                <button class="hero-mode-pill btn btn-sm rounded-pill" data-mode="eco">
-                                    <i class="fa-solid fa-leaf text-success me-1"></i> Eco Air Care
-                                </button>
-                            </div>
+                    <!-- Action Buttons (1st Reference Image - No Red Button) -->
+                    <div class="hero-cta-group d-flex flex-wrap align-items-center gap-3">
+                        <a href="#appointmentModal" data-bs-toggle="modal"
+                            class="btn btn-hero-book rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center gap-2 shadow-sm">
+                            <i class="fa-regular fa-calendar-check fs-6"></i>
+                            <span>Book a Service</span>
+                        </a>
+                        <a href="#services"
+                            class="btn btn-hero-explore rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center gap-2">
+                            <span>Explore Our Services</span>
+                        </a>
+                    </div>
 
-                            <!-- Temperature Controller -->
-                            <div
-                                class="climate-simulator-bar d-flex align-items-center bg-light rounded-pill px-2.5 py-1 border shadow-xs">
-                                <button class="btn btn-sm btn-icon text-secondary p-1" id="tempMinusBtn"
-                                    title="Lower Target Temp">
-                                    <i class="fa-solid fa-minus fs-7"></i>
-                                </button>
-                                <span class="temp-val-display px-2 fw-bold text-navy fs-6"
-                                    id="liveTempDisplay">18°C</span>
-                                <button class="btn btn-sm btn-icon text-secondary p-1" id="tempPlusBtn"
-                                    title="Increase Target Temp">
-                                    <i class="fa-solid fa-plus fs-7"></i>
-                                </button>
-                            </div>
+                    <!-- Divider Line -->
+                    <hr class="hero-trust-divider">
+
+                    <!-- Trust Points (1st Reference Image) -->
+                    <div class="hero-trust-row d-flex flex-wrap align-items-center gap-3 gap-md-4 pt-1">
+                        <!-- Feature 1: 100% Genuine Carrier Units -->
+                        <div class="hero-trust-item d-flex align-items-center gap-2">
+                            <span class="hero-trust-check-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span class="hero-trust-text">
+                                <span class="d-block tabular-nums">100% Genuine</span>
+                                <span>Carrier Units</span>
+                            </span>
+                        </div>
+
+                        <!-- Feature 2: Certified Expert Technicians -->
+                        <div class="hero-trust-item d-flex align-items-center gap-2">
+                            <span class="hero-trust-check-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span class="hero-trust-text">
+                                <span class="d-block">Certified Expert</span>
+                                <span>Technicians</span>
+                            </span>
+                        </div>
+
+                        <!-- Feature 3: Same-Day Service Response -->
+                        <div class="hero-trust-item d-flex align-items-center gap-2">
+                            <span class="hero-trust-check-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span class="hero-trust-text">
+                                <span class="d-block">Same-Day Service</span>
+                                <span>Response</span>
+                            </span>
                         </div>
                     </div>
 
@@ -157,16 +178,16 @@
                         <!-- Carousel Slides -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/AC BANNER444.png" alt="Carrier AC Dealership Solutions Banner"
+                                <img src="images/career banner.png" alt="Carrier AC Dealership Solutions Banner"
                                     class="hero-main-img img-fluid d-block mx-auto">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/COMFORT AIRCON BANNER IMAGE 2 (2).png"
+                                <img src="images/catrrt nanner2.png"
                                     alt="Comfort Aircon Cooling Solutions Banner"
                                     class="hero-main-img img-fluid d-block mx-auto">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/PRNQUNI.png" alt="Carrier Air Conditioning Technology Banner"
+                                <img src="images/banner3.png" alt="Carrier Air Conditioning Technology Banner"
                                     class="hero-main-img img-fluid d-block mx-auto">
                             </div>
                         </div>
@@ -209,15 +230,17 @@
 
                 <!- - Right Column: Company Profile Description & Stats - ->
                 <div class="col-lg-6 ps-lg-4">
-                    <span class="section-tag"><i class="fa-solid fa-building me-1 text-primary-blue"></i> Company
-                        Profile & Expertise</span>
-                    <h2 class="section-title mt-2">Puducherry's Premier HVAC Engineering & Solutions Provider</h2>
-                    <p class="text-muted mb-4 fs-6">
+                    <span class="section-tag"><i class="fa-solid fa-building me-1 text-primary-blue"></i> ABOUT US</span>
+                    <h2 class="section-title mt-2">Puducherry's Premier HVAC <span class="gradient-word">Engineering</span> & Solutions Provider</h2>
+                    <p class="text-muted mb-3 fs-6">
                         Established in 1999, Comfort Aircon is Puducherry's premier authorized partner and official
                         distributor for Carrier and Toshiba air conditioning systems. With over 25 years of technical
                         expertise, we deliver comprehensive cooling solutions—ranging from thermal load design and VRF
                         commercial engineering to turnkey installation and lifecycle maintenance.
                     </p>
+                    <div class="about-pull-quote">
+                        Over 25 years of technical expertise, delivering authorized Carrier & Toshiba cooling excellence with factory warranty protection across Puducherry.
+                    </div>
                     <ul class="about-check-list">
                         <li><i class="fa-solid fa-check text-success me-2"></i> Full Turnkey HVAC Engineering, Load
                             Sizing & System Design</li>
@@ -236,7 +259,7 @@
                             <small class="text-muted">Projects Delivered</small>
                         </div>
                         <div class="col-6 col-sm-3 text-center border-sm-end">
-                            <strong class="d-block fs-4 text-accent-orange fw-bold stat-number" data-count-target="100"
+                            <strong class="d-block fs-4 text-primary-blue fw-bold stat-number" data-count-target="100"
                                 data-suffix="%">100%</strong>
                             <small class="text-muted">Technical Quality</small>
                         </div>
@@ -263,9 +286,10 @@
     <!-- 4. SERVICES OVERVIEW SECTION (LINKING TO SERVICES PAGE) -->
     <section class="services-section" id="services">
         <div class="container-xxl">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="section-tag"><i class="fa-solid fa-gears me-1"></i> Solutions & Engineering Overview</span>
-                <h2 class="section-title display-6 fw-bold">Our HVAC & Air Conditioning Services</h2>
+            <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+                <span class="section-tag"><i class="fa-solid fa-gears me-1"></i> SERVICES</span>
+                <h2 class="section-title display-6 fw-bold">Our HVAC & Air Conditioning <span
+                        class="gradient-word">Services</span></h2>
                 <p class="text-muted fs-6">Custom engineered climate control solutions designed for optimal energy
                     efficiency, indoor air quality, and long-term operational performance for residential and commercial
                     spaces.</p>
@@ -273,21 +297,13 @@
 
             <div class="row g-4">
                 <!-- Service 1: AC Installation -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/carrier-split.png" alt="AC Installation - Carrier & Toshiba">
-                            <span class="service-badge"><i class="fa-solid fa-wrench me-1 text-warning"></i> 01</span>
-                            <span class="service-price-tag bg-primary text-white">Certified Setup</span>
+                            <img src="images/1.png" alt="AC Installation - Carrier & Toshiba">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Factory Standard)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">1. AC Installation</h4>
+                            <h4 class="fw-bold fs-5 mb-2">AC Installation</h4>
                             <p class="text-muted small mb-3">Precision wall mounting, copper piping, vacuum leak
                                 testing, and electrical wiring for split, cassette, and ductable ACs.</p>
                             <div class="mt-auto">
@@ -300,22 +316,13 @@
                 </div>
 
                 <!-- Service 2: Repair -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/videoframe_5055.png" alt="AC Repair Services">
-                            <span class="service-badge"><i class="fa-solid fa-screwdriver-wrench me-1 text-warning"></i>
-                                02</span>
-                            <span class="service-price-tag bg-danger text-white">Rapid Repair</span>
+                            <img src="images/2.png" alt="AC Repair Services">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Same-Day Visit)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">2. Repair</h4>
+                            <h4 class="fw-bold fs-5 mb-2">AC Repair & Service</h4>
                             <p class="text-muted small mb-3">Fast on-site troubleshooting for no-cooling, compressor
                                 trip, PCB circuit issues, fan motor failure, and water dripping.</p>
                             <div class="mt-auto">
@@ -328,22 +335,13 @@
                 </div>
 
                 <!-- Service 3: Service & Maintenance -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/hero_tech.png" alt="AC Service & Maintenance">
-                            <span class="service-badge"><i class="fa-solid fa-gauge-high me-1 text-warning"></i>
-                                03</span>
-                            <span class="service-price-tag bg-success text-white">Full Tune-Up</span>
+                            <img src="images/3.png" alt="AC Service & Maintenance">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Energy Restore)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">3. Service & Maintenance</h4>
+                            <h4 class="fw-bold fs-5 mb-2">Service & Maintenance</h4>
                             <p class="text-muted small mb-3">Multi-point seasonal inspection to maintain peak cooling
                                 performance, lower energy consumption, and prevent sudden breakdowns.</p>
                             <div class="mt-auto">
@@ -356,22 +354,13 @@
                 </div>
 
                 <!-- Service 4: Gas Filling -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/duct.png" alt="AC Gas Filling Services">
-                            <span class="service-badge"><i class="fa-solid fa-flask-vial me-1 text-warning"></i>
-                                04</span>
-                            <span class="service-price-tag bg-info text-white">Eco Cool Gas</span>
+                            <img src="images/4.png" alt="AC Gas Filling Services">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Leakage Proof)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">4. Gas Filling</h4>
+                            <h4 class="fw-bold fs-5 mb-2">Gas Filling & Leak Repair</h4>
                             <p class="text-muted small mb-3">Electronic leak detection, nitrogen pressure testing,
                                 copper brazing repairs, vacuuming, and pure R32/R410A gas charging.</p>
                             <div class="mt-auto">
@@ -384,22 +373,13 @@
                 </div>
 
                 <!-- Service 5: Cleaning & Troubleshooting -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/ac.png" alt="AC Cleaning & Troubleshooting">
-                            <span class="service-badge"><i class="fa-solid fa-spray-can-sparkles me-1 text-warning"></i>
-                                05</span>
-                            <span class="service-price-tag bg-primary text-white">Jet Wash</span>
+                            <img src="images/5.png" alt="AC Cleaning & Troubleshooting">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Deep Sanitized)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">5. Cleaning & Troubleshooting</h4>
+                            <h4 class="fw-bold fs-5 mb-2">Cleaning & Troubleshooting</h4>
                             <p class="text-muted small mb-3">High-pressure water jacket foam cleaning to purge deep
                                 dust, mold, and odor. Complete electrical & thermistor troubleshooting.</p>
                             <div class="mt-auto">
@@ -412,22 +392,13 @@
                 </div>
 
                 <!-- Service 6: Replacement -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/carrier-split-ac.jpg" alt="AC Replacement and Upgrade">
-                            <span class="service-badge"><i class="fa-solid fa-arrows-rotate me-1 text-warning"></i>
-                                06</span>
-                            <span class="service-price-tag bg-warning text-dark">5-Star Upgrade</span>
+                            <img src="images/6.png" alt="AC Replacement and Upgrade">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Save Power)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">6. Replacement</h4>
+                            <h4 class="fw-bold fs-5 mb-2">AC Replacement</h4>
                             <p class="text-muted small mb-3">Trade in your old, noisy AC for high-efficiency 5-Star
                                 Carrier or Toshiba inverter systems with attractive exchange bonuses.</p>
                             <div class="mt-auto">
@@ -440,22 +411,13 @@
                 </div>
 
                 <!-- Service 7: Annual Maintenance -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/livingroom.png" alt="Annual Maintenance Contract AMC">
-                            <span class="service-badge"><i class="fa-solid fa-shield-halved me-1 text-warning"></i>
-                                07</span>
-                            <span class="service-price-tag bg-success text-white">365-Day Care</span>
+                            <img src="images/7.png" alt="Annual Maintenance Contract AMC">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Zero Breakdown)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">7. Annual Maintenance</h4>
+                            <h4 class="fw-bold fs-5 mb-2">Annual Maintenance (AMC)</h4>
                             <p class="text-muted small mb-3">Comprehensive & Non-Comprehensive AMC packages with
                                 scheduled preventive visits, free breakdown callouts, and spare discounts.</p>
                             <div class="mt-auto">
@@ -468,22 +430,13 @@
                 </div>
 
                 <!-- Service 8: Commercial AC Services -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-card d-flex flex-column h-100">
                         <div class="service-img-wrapper">
-                            <img src="images/carrier-vrf.png" alt="Commercial AC Services">
-                            <span class="service-badge"><i
-                                    class="fa-solid fa-building-circle-check me-1 text-warning"></i> 08</span>
-                            <span class="service-price-tag bg-dark text-white">Commercial VRF</span>
+                            <img src="images/8.png" alt="Commercial AC Services">
                         </div>
                         <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <div class="text-warning small mb-1">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                                <span class="text-muted ms-1">(Enterprise Scale)</span>
-                            </div>
-                            <h4 class="fw-bold fs-5 mb-2">8. Commercial AC Services</h4>
+                            <h4 class="fw-bold fs-5 mb-2">Commercial AC Services</h4>
                             <p class="text-muted small mb-3">Toshiba SMMS-u VRF engineering, architectural ceiling
                                 cassettes, concealed ducting, and corporate climate engineering.</p>
                             <div class="mt-auto">
@@ -497,7 +450,7 @@
             </div>
 
             <!-- Link to Services Page CTA Button -->
-            <div class="text-center mt-5">
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="200">
                 <a href="services.html"
                     class="btn btn-custom-primary btn-lg rounded-pill fw-bold shadow-sm explore-services-btn">
                     <i class="fa-solid fa-layer-group me-2"></i> Explore All Services on Dedicated Services Page
@@ -509,15 +462,17 @@
     <!-- 6.5 CARRIER & TOSHIBA PRODUCTS CATALOG SECTION -->
     <section class="products-section" id="products">
         <div class="container-xxl">
-            <div class="text-center max-w-700 mx-auto mb-4">
-                <span class="section-tag"><i class="fa-solid fa-snowflake me-1"></i> Technology Portfolio</span>
-                <h2 class="section-title display-6 fw-bold">Carrier & Toshiba Technology Portfolio</h2>
+            <div class="text-center max-w-700 mx-auto mb-4" data-aos="fade-up">
+                <span class="section-tag"><i class="fa-solid fa-snowflake me-1"></i> OUR RANGE</span>
+                <h2 class="section-title display-6 fw-bold">Carrier & Toshiba Technology <span
+                        class="gradient-word">Portfolio</span></h2>
                 <p class="text-muted fs-6">Explore our official range of high-efficiency Carrier and Toshiba systems
                     engineered for residential, commercial, and enterprise applications.</p>
             </div>
 
             <!-- Filter Category Tabs (Centered) -->
-            <div class="d-flex justify-content-center align-items-center text-center gap-2 mb-4 flex-wrap">
+            <div class="d-flex justify-content-center align-items-center text-center gap-2 mb-4 flex-wrap"
+                data-aos="fade-up" data-aos-delay="100">
                 <button class="product-filter-btn active" data-filter="all">All Systems</button>
                 <button class="product-filter-btn" data-filter="toshiba">Toshiba Range</button>
                 <button class="product-filter-btn" data-filter="carrier">Carrier Range</button>
@@ -528,7 +483,7 @@
             </div>
 
             <!-- Product Slider Outer Wrapper with Floating Side Arrows -->
-            <div class="product-slider-outer-wrapper">
+            <div class="product-slider-outer-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <!-- Left Side Arrow Button -->
                 <button class="slider-arrow-btn slider-arrow-left" id="productPrevBtn" aria-label="Previous Products">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -706,7 +661,7 @@
                                 </div>
                                 <div class="p-4">
                                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
-                                        <span class="badge-soft-danger">Japanese Tech VRF</span>
+                                        <span class="badge-soft-blue">Japanese Tech VRF</span>
                                         <span class="text-warning small"><i class="fa-solid fa-star"></i> 5.0
                                             Efficiency</span>
                                     </div>
@@ -759,7 +714,7 @@
                                 </div>
                                 <div class="p-4">
                                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
-                                        <span class="badge-soft-danger">Ceiling Cassette</span>
+                                        <span class="badge-soft-blue">Ceiling Cassette</span>
                                         <span class="text-warning small"><i class="fa-solid fa-star"></i> 4.9 Air
                                             Purify</span>
                                     </div>
@@ -865,7 +820,7 @@
                                 </div>
                                 <div class="p-4">
                                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
-                                        <span class="badge-soft-danger">Hi-Wall Split</span>
+                                        <span class="badge-soft-blue">Hi-Wall Split</span>
                                         <span class="text-warning small"><i class="fa-solid fa-star"></i> 5.0
                                             Inverter</span>
                                     </div>
@@ -976,12 +931,12 @@
     <section class="why-choose-us-section" id="why-choose-us">
         <div class="container-xxl">
             <div class="row align-items-center gy-5">
-                <div class="col-lg-6">
-                    <span class="text-accent-orange font-heading text-uppercase fw-bold tracking-wider fs-7">
-                        <i class="fa-solid fa-medal me-1"></i> Engineering Excellence
+                <div class="col-lg-6" data-aos="fade-up">
+                    <span class="section-tag mb-2">
+                        <i class="fa-solid fa-medal me-1"></i> WHY CARRIER
                     </span>
                     <h2 class="text-white section-title display-5 fw-bold mb-4">
-                        Why Choose Comfort Aircon?
+                        Why Choose <span class="gradient-word">Comfort Aircon</span>?
                     </h2>
                     <p class="text-light opacity-75 mb-4 fs-6">
                         As Puducherry's premier authorized Carrier & Toshiba AC dealership for over 25 years, we combine
@@ -990,7 +945,7 @@
                     </p>
                     <div class="row g-3 g-md-4">
                         <!-- Reason 1: Authorized Carrier & Toshiba Dealership -->
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="why-choose-card h-100">
                                 <div class="why-icon"><i class="fa-solid fa-certificate"></i></div>
                                 <h5 class="text-white fw-bold">Authorized Carrier Dealer</h5>
@@ -999,7 +954,7 @@
                             </div>
                         </div>
                         <!-- Reason 2: 25+ Years HVAC Heritage -->
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="why-choose-card h-100">
                                 <div class="why-icon"><i class="fa-solid fa-award"></i></div>
                                 <h5 class="text-white fw-bold">25+ Years Experience</h5>
@@ -1008,7 +963,7 @@
                             </div>
                         </div>
                         <!-- Reason 3: Brand-Certified Engineers -->
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="why-choose-card h-100">
                                 <div class="why-icon"><i class="fa-solid fa-id-card"></i></div>
                                 <h5 class="text-white fw-bold">Certified HVAC Engineers</h5>
@@ -1017,7 +972,7 @@
                             </div>
                         </div>
                         <!-- Reason 4: Transparent BOQ Proposals -->
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="why-choose-card h-100">
                                 <div class="why-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                                 <h5 class="text-white fw-bold">Transparent BOQ Pricing</h5>
@@ -1028,7 +983,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-4 rounded-4 bg-white text-dark shadow-lg">
                         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
                             <h4 class="fw-bold mb-0 text-dark-navy">
@@ -1040,7 +995,7 @@
                             class="img-fluid rounded-3 mb-3 border">
                         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
                             <div class="d-flex flex-wrap gap-1">
-                                <span class="badge bg-danger me-1 mb-1">Old AC: 12 SEER</span>
+                                <span class="badge bg-secondary me-1 mb-1">Old AC: 12 SEER</span>
                                 <span class="badge bg-success mb-1">Carrier 5-Star: 22 SEER Inverter</span>
                             </div>
                             <strong class="text-primary-blue fs-6">Significantly Lower Power Bills</strong>
@@ -1051,165 +1006,251 @@
         </div>
     </section>
 
-    <!-- 6. SERVICE AREAS SECTION -->
-    <section class="service-areas-section" id="service-areas">
+    <!-- 6. SERVICE AREAS SECTION (Split Layout: Left 2-Card Auto Slider, Right Technicians Graphic) -->
+    <section class="service-areas-section" id="areas">
         <div class="container-xxl">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="section-tag"><i class="fa-solid fa-map-location-dot me-1"></i> Regional Coverage</span>
-                <h2 class="section-title display-6 fw-bold">Our Service Areas</h2>
-                <p class="text-muted fs-6">Delivering authorized Carrier AC sales, precision installation, and prompt
-                    on-site maintenance across Pondicherry, Villupuram, Cuddalore, and nearby regional belts.</p>
-            </div>
+            <div class="row align-items-center gy-5">
+                <!-- Left Column: Eyebrow, Heading, Lead & 2-Card Auto Slider (50% Width) -->
+                <div class="col-lg-6 col-xl-6" data-aos="fade-right">
+                    <div class="pe-xl-2 mb-4 mb-lg-0">
+                        <span class="section-tag mb-2 d-inline-flex align-items-center"><i
+                                class="fa-solid fa-map-location-dot me-1"></i> SERVICE AREAS</span>
+                        <h2 class="section-title display-6 fw-bold mb-3">Our Regional Service <span
+                                class="gradient-word">Areas</span></h2>
+                        <p class="text-muted fs-6 mb-4" style="max-width: 540px;">
+                            Delivering authorized Carrier AC sales, precision installation, and prompt on-site
+                            maintenance across Pondicherry, Villupuram, Cuddalore, and nearby regional belts.
+                        </p>
 
-            <div class="row g-4">
-                <!-- Area 1: Pondicherry (Puducherry) -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="area-card">
-                        <div class="area-card-header">
-                            <div class="area-icon-box">
-                                <i class="fa-solid fa-city"></i>
+                        <!-- Area Slider Container (2 cards per slide automatically sliding) -->
+                        <div class="area-slider-container position-relative">
+                            <div class="area-slider-overflow">
+                                <div class="area-slider-track d-flex" id="areaSliderTrack">
+                                    <!-- Slide Group 1: Pondicherry & Villupuram (2 Cards) -->
+                                    <div class="area-slide-group">
+                                        <div class="row g-3 h-100">
+                                            <!-- Card 1: Pondicherry -->
+                                            <div class="col-sm-6 col-12 d-flex">
+                                                <div class="area-card w-100">
+                                                    <div class="area-card-header">
+                                                        <div class="area-icon-box">
+                                                            <i class="fa-solid fa-city"></i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="area-badge-primary">Main Hub &amp;
+                                                                Showroom</span>
+                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Pondicherry
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <p class="small text-muted mb-2">Complete sales showroom, warehouse
+                                                        inventory, and dedicated technician dispatch.</p>
+                                                    <div class="area-locations-tags">
+                                                        <span class="location-tag">White Town</span>
+                                                        <span class="location-tag">Lawspet</span>
+                                                        <span class="location-tag">Muthialpet</span>
+                                                        <span class="location-tag">Saram</span>
+                                                        <span class="location-tag">Villianur</span>
+                                                        <span class="location-tag">Kalapet</span>
+                                                    </div>
+                                                    <ul class="area-features-list">
+                                                        <li><i class="fa-solid fa-circle-check"></i> Authorized Carrier
+                                                            Hub</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> Same-Day Delivery
+                                                            &amp; Setup</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> 2-Hour Quick
+                                                            Assistance</li>
+                                                    </ul>
+                                                    <div class="area-action-btns">
+                                                        <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Pondicherry."
+                                                            target="_blank" class="btn-area-whatsapp"><i
+                                                                class="fa-brands fa-whatsapp fs-5"></i>
+                                                            WhatsApp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Card 2: Villupuram -->
+                                            <div class="col-sm-6 col-12 d-flex">
+                                                <div class="area-card w-100">
+                                                    <div class="area-card-header">
+                                                        <div class="area-icon-box">
+                                                            <i class="fa-solid fa-truck-ramp-box"></i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="area-badge-primary">Full District Reach</span>
+                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Villupuram</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p class="small text-muted mb-2">Doorstep Carrier sales
+                                                        consultation, commercial VRF execution, and authorized service.
+                                                    </p>
+                                                    <div class="area-locations-tags">
+                                                        <span class="location-tag">Villupuram Town</span>
+                                                        <span class="location-tag">Tindivanam</span>
+                                                        <span class="location-tag">Vikravandi</span>
+                                                        <span class="location-tag">Valavanur</span>
+                                                        <span class="location-tag">Gingee</span>
+                                                        <span class="location-tag">Mailam</span>
+                                                    </div>
+                                                    <ul class="area-features-list">
+                                                        <li><i class="fa-solid fa-circle-check"></i> Doorstep Site
+                                                            Consultation</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> Express Hub
+                                                            Dispatch</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> Certified
+                                                            Technicians</li>
+                                                    </ul>
+                                                    <div class="area-action-btns">
+                                                        <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Villupuram."
+                                                            target="_blank" class="btn-area-whatsapp"><i
+                                                                class="fa-brands fa-whatsapp fs-5"></i>
+                                                            WhatsApp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide Group 2: Cuddalore & Nearby Areas (2 Cards) -->
+                                    <div class="area-slide-group">
+                                        <div class="row g-3 h-100">
+                                            <!-- Card 3: Cuddalore -->
+                                            <div class="col-sm-6 col-12 d-flex">
+                                                <div class="area-card w-100">
+                                                    <div class="area-card-header">
+                                                        <div class="area-icon-box"
+                                                            style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                                            <i class="fa-solid fa-industry"></i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="area-badge-primary"
+                                                                style="background: #D1FAE5; color: #047857;">Coastal
+                                                                &amp; Industrial</span>
+                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Cuddalore</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p class="small text-muted mb-2">Turnkey industrial cooling,
+                                                        commercial cassette solutions, and anti-corrosion ACs.</p>
+                                                    <div class="area-locations-tags">
+                                                        <span class="location-tag">Cuddalore Port</span>
+                                                        <span class="location-tag">Old Town (OT)</span>
+                                                        <span class="location-tag">Manjakuppam</span>
+                                                        <span class="location-tag">Panruti</span>
+                                                        <span class="location-tag">Neyveli</span>
+                                                        <span class="location-tag">Chidambaram</span>
+                                                    </div>
+                                                    <ul class="area-features-list">
+                                                        <li><i class="fa-solid fa-circle-check"></i> Coastal Anti-Rust
+                                                            ACs</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> Industrial &amp;
+                                                            Commercial HVAC</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> On-Site Repair
+                                                            &amp; AMC</li>
+                                                    </ul>
+                                                    <div class="area-action-btns">
+                                                        <a href="https://wa.me/919843020458?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Cuddalore."
+                                                            target="_blank" class="btn-area-whatsapp"><i
+                                                                class="fa-brands fa-whatsapp fs-5"></i>
+                                                            WhatsApp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Card 4: Nearby Regional Corridors -->
+                                            <div class="col-sm-6 col-12 d-flex">
+                                                <div class="area-card w-100">
+                                                    <div class="area-card-header">
+                                                        <div class="area-icon-box"
+                                                            style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
+                                                            <i class="fa-solid fa-compass"></i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="area-badge-primary"
+                                                                style="background: #FEF3C7; color: #B45309;">Nearby
+                                                                Corridors</span>
+                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Nearby Areas
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <p class="small text-muted mb-2">Luxury villa VRF systems,
+                                                        eco-friendly residences, and highway commercial projects.</p>
+                                                    <div class="area-locations-tags">
+                                                        <span class="location-tag">Auroville</span>
+                                                        <span class="location-tag">Marakkanam</span>
+                                                        <span class="location-tag">ECR Belt</span>
+                                                        <span class="location-tag">NH-45 Corridor</span>
+                                                        <span class="location-tag">Sedarapet</span>
+                                                        <span class="location-tag">JIPMER Area</span>
+                                                    </div>
+                                                    <ul class="area-features-list">
+                                                        <li><i class="fa-solid fa-circle-check"></i> Eco Inverter AC
+                                                            Units</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> Villa &amp; Resort
+                                                            VRF Experts</li>
+                                                        <li><i class="fa-solid fa-circle-check"></i> Priority Mobile
+                                                            Service Van</li>
+                                                    </ul>
+                                                    <div class="area-action-btns">
+                                                        <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Auroville%20or%20nearby%20area."
+                                                            target="_blank" class="btn-area-whatsapp"><i
+                                                                class="fa-brands fa-whatsapp fs-5"></i>
+                                                            WhatsApp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <span class="area-badge-primary">Main Hub & Showroom</span>
-                                <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Pondicherry</h4>
+
+                            <!-- Area Slider Controls: Progress Dots & Arrows -->
+                            <div class="d-flex align-items-center justify-content-between mt-4 pt-1">
+                                <div class="area-slider-dots d-flex align-items-center gap-2" id="areaSliderDots">
+                                    <button type="button" class="area-dot active" data-slide="0"
+                                        aria-label="Go to Slide 1"></button>
+                                    <button type="button" class="area-dot" data-slide="1"
+                                        aria-label="Go to Slide 2"></button>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <button type="button" class="t-arrow-btn" id="areaPrevBtn"
+                                        aria-label="Previous service areas">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </button>
+                                    <button type="button" class="t-arrow-btn" id="areaNextBtn"
+                                        aria-label="Next service areas">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <p class="small text-muted mb-2">Complete sales showroom, inventory warehouse, and dedicated
-                            on-site technician response team.</p>
-                        <div class="area-locations-tags">
-                            <span class="location-tag">White Town</span>
-                            <span class="location-tag">Lawspet</span>
-                            <span class="location-tag">Muthialpet</span>
-                            <span class="location-tag">Saram</span>
-                            <span class="location-tag">Reddiarpalayam</span>
-                            <span class="location-tag">Villianur</span>
-                            <span class="location-tag">Kalapet</span>
-                            <span class="location-tag">Ariyankuppam</span>
-                            <span class="location-tag">Bahour</span>
-                        </div>
-                        <ul class="area-features-list">
-                            <li><i class="fa-solid fa-circle-check"></i> Authorized Carrier Showroom</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Same-Day Delivery & Setup</li>
-                            <li><i class="fa-solid fa-circle-check"></i> 2-Hour Breakdown Assistance</li>
-                        </ul>
-                        <div class="area-action-btns">
-                            <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Pondicherry."
-                                target="_blank" class="btn-area-whatsapp"><i class="fa-brands fa-whatsapp fs-5"></i>
-                                WhatsApp</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Area 2: Villupuram District -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="area-card">
-                        <div class="area-card-header">
-                            <div class="area-icon-box" style="background: rgba(220, 38, 38, 0.1); color: #DC2626;">
-                                <i class="fa-solid fa-truck-ramp-box"></i>
-                            </div>
-                            <div>
-                                <span class="area-badge-primary" style="background: #FEE2E2; color: #DC2626;">Full
-                                    District Reach</span>
-                                <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Villupuram</h4>
-                            </div>
+                <!-- Right Column: Dedicated HVAC Excellence Graphic (Big, Imposing Size Matching Reference Image) -->
+                <div class="col-lg-6 col-xl-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="area-hero-graphic-wrap position-relative mx-auto text-center">
+                        <!-- Big Circular Graphic Backdrop -->
+                        <div class="area-circle-backdrop">
+                            <div class="area-circle-inner-warm"></div>
                         </div>
-                        <p class="small text-muted mb-2">Doorstep Carrier AC sales consultation, commercial VRF
-                            execution, and authorized warranty service.</p>
-                        <div class="area-locations-tags">
-                            <span class="location-tag">Villupuram Town</span>
-                            <span class="location-tag">Tindivanam</span>
-                            <span class="location-tag">Vikravandi</span>
-                            <span class="location-tag">Valavanur</span>
-                            <span class="location-tag">Gingee</span>
-                            <span class="location-tag">Mailam</span>
-                            <span class="location-tag">Kiliyanur</span>
-                            <span class="location-tag">Kandamangalam</span>
-                        </div>
-                        <ul class="area-features-list">
-                            <li><i class="fa-solid fa-circle-check"></i> Doorstep Site Consultation</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Express Delivery from Hub</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Certified Carrier Technicians</li>
-                        </ul>
-                        <div class="area-action-btns">
-                            <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Villupuram."
-                                target="_blank" class="btn-area-whatsapp"><i class="fa-brands fa-whatsapp fs-5"></i>
-                                WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Area 3: Cuddalore District -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="area-card">
-                        <div class="area-card-header">
-                            <div class="area-icon-box" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
-                                <i class="fa-solid fa-industry"></i>
-                            </div>
-                            <div>
-                                <span class="area-badge-primary" style="background: #D1FAE5; color: #047857;">Coastal &
-                                    Industrial</span>
-                                <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Cuddalore</h4>
-                            </div>
-                        </div>
-                        <p class="small text-muted mb-2">Turnkey industrial cooling, commercial cassette solutions, and
-                            coastal anti-corrosion ACs.</p>
-                        <div class="area-locations-tags">
-                            <span class="location-tag">Cuddalore Port</span>
-                            <span class="location-tag">Old Town (OT)</span>
-                            <span class="location-tag">Manjakuppam</span>
-                            <span class="location-tag">Panruti</span>
-                            <span class="location-tag">Neyveli</span>
-                            <span class="location-tag">Chidambaram</span>
-                            <span class="location-tag">Nellikuppam</span>
-                            <span class="location-tag">Vadalur</span>
-                        </div>
-                        <ul class="area-features-list">
-                            <li><i class="fa-solid fa-circle-check"></i> Coastal Anti-Rust AC Coating</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Industrial & Commercial HVAC</li>
-                            <li><i class="fa-solid fa-circle-check"></i> On-Site Repair & AMC Support</li>
-                        </ul>
-                        <div class="area-action-btns">
-                            <a href="https://wa.me/919843020458?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Cuddalore."
-                                target="_blank" class="btn-area-whatsapp"><i class="fa-brands fa-whatsapp fs-5"></i>
-                                WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
+                        <!-- Large 3 HVAC Technicians Image -->
+                        <img src="images/Group-315-1.png" alt="Comfort Aircon Dedicated HVAC Excellence Technical Team"
+                            class="img-fluid area-technicians-img position-relative z-2">
 
-                <!-- Area 4: Nearby Regional Corridors -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="area-card">
-                        <div class="area-card-header">
-                            <div class="area-icon-box" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
-                                <i class="fa-solid fa-compass"></i>
+                        <!-- Floating Certified Field Team Trust Badge -->
+                        <div
+                            class="area-floating-trust-badge shadow-lg d-inline-flex align-items-center gap-3 position-absolute">
+                            <div class="badge-icon-circle bg-primary-blue text-white shadow-xs">
+                                <i class="fa-solid fa-award fs-4"></i>
                             </div>
-                            <div>
-                                <span class="area-badge-primary" style="background: #FEF3C7; color: #B45309;">Nearby
-                                    Corridors</span>
-                                <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Nearby Areas</h4>
+                            <div class="text-start">
+                                <span class="d-block fw-bold text-dark-navy small leading-tight">Certified Field
+                                    Team</span>
+                                <small class="text-muted" style="font-size: 0.74rem;">Carrier &amp; Toshiba
+                                    Authorized</small>
                             </div>
-                        </div>
-                        <p class="small text-muted mb-2">Luxury villa VRF systems, eco-friendly residences, and highway
-                            commercial projects.</p>
-                        <div class="area-locations-tags">
-                            <span class="location-tag">Auroville</span>
-                            <span class="location-tag">Marakkanam</span>
-                            <span class="location-tag">ECR Belt</span>
-                            <span class="location-tag">NH-45 Corridor</span>
-                            <span class="location-tag">Sedarapet</span>
-                            <span class="location-tag">JIPMER Area</span>
-                            <span class="location-tag">Thirukanur</span>
-                            <span class="location-tag">Madagadipet</span>
-                        </div>
-                        <ul class="area-features-list">
-                            <li><i class="fa-solid fa-circle-check"></i> Green & Eco Inverter Units</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Villa & Resort VRF Experts</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Priority Mobile Service Van</li>
-                        </ul>
-                        <div class="area-action-btns">
-                            <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Auroville%20or%20nearby%20area."
-                                target="_blank" class="btn-area-whatsapp"><i class="fa-brands fa-whatsapp fs-5"></i>
-                                WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -1393,7 +1434,7 @@
                         class="additional-service-box h-100 p-4 rounded-4 shadow-sm border bg-white position-relative overflow-hidden">
                         <div class="watermark-icon"><i class="fa-solid fa-ruler-combined"></i></div>
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="add-service-icon icon-orange shadow-sm">
+                            <div class="add-service-icon icon-cyan shadow-sm">
                                 <i class="fa-solid fa-ruler-combined"></i>
                             </div>
                             <span
@@ -1549,8 +1590,8 @@
                         <div class="brand-partner-card brand-card-toshiba shadow-md h-100 text-start">
                             <div
                                 class="brand-card-header d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom border-dashed">
-                                <span class="brand-logo-text text-toshiba-red font-heading fw-black fs-2">TOSHIBA</span>
-                                <span class="dealer-badge dealer-badge-red"><i class="fa-solid fa-check me-1"></i>
+                                <span class="brand-logo-text text-navy font-heading fw-black fs-2">TOSHIBA</span>
+                                <span class="dealer-badge dealer-badge-blue"><i class="fa-solid fa-check me-1"></i>
                                     Authorized Dealer</span>
                             </div>
                             <div class="brand-card-body d-flex flex-column justify-content-between flex-grow-1">
@@ -1560,7 +1601,7 @@
                                         Technology</p>
                                 </div>
                                 <div>
-                                    <span class="partner-tech-tag tag-red">
+                                    <span class="partner-tech-tag tag-blue">
                                         <i class="fa-solid fa-microchip me-1.5"></i> SMMS-u VRF &amp; Daiseikai Split
                                     </span>
                                 </div>
@@ -1658,7 +1699,7 @@
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq2">
-                                    <i class="fa-solid fa-shield-halved me-2 text-accent-orange"></i> What warranty
+                                    <i class="fa-solid fa-shield-halved me-2 text-primary-blue"></i> What warranty
                                     comes with new AC purchases?
                                 </button>
                             </h3>
@@ -1788,152 +1829,115 @@
     </section>
     ======================================================== -->
 
-    <!-- 9.5 CREATIVE CUSTOMER TESTIMONIALS SECTION -->
-    <section class="testimonials-section py-6 overflow-hidden position-relative" id="testimonials">
+    <!-- 9.5 TESTIMONIALS SECTION (Centered Layout & Auto Slider Cards) -->
+    <section class="testimonial-ref-section py-6 overflow-hidden position-relative" id="testimonials">
         <div class="container-xxl position-relative z-2">
-            <!-- Header -->
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="section-tag mb-2 d-inline-block">⭐ Client Trust & Success Stories</span>
-                <h2 class="section-title display-5 fw-bold text-navy mb-3">What Our Satisfied Customers Say</h2>
-                <p class="text-muted fs-5">Over 2,400+ homes, villas, and commercial offices in Puducherry trust
-                    Comfort
-                    Aircon for authorized Carrier & Toshiba AC sales.</p>
-                <div
-                    class="d-inline-flex align-items-center gap-2 px-3 py-1-5 rounded-pill bg-white border shadow-sm mt-2">
-                    <div class="d-flex text-warning fs-6">
+            <!-- Centered Section Header -->
+            <div class="text-center max-w-750 mx-auto mb-5" data-aos="fade-up">
+                <span class="section-tag mb-2 d-inline-flex align-items-center"><i
+                        class="fa-solid fa-comments me-1"></i> TESTIMONIALS</span>
+                <h2 class="testimonial-heading text-center">What they say <span class="gradient-word">about us</span>.
+                </h2>
+                <p class="testimonial-lead text-center mx-auto mb-3">
+                    Over 2,400+ satisfied homeowners, luxury villas, and commercial enterprises in Puducherry rely on
+                    Comfort Aircon for authorized Carrier &amp; Toshiba cooling excellence.
+                </p>
+                <div class="d-inline-flex align-items-center gap-2 bg-white px-3 py-1.5 rounded-pill shadow-xs border">
+                    <span class="fw-bold text-dark-navy fs-6">4.7</span>
+                    <span class="text-warning small d-inline-flex gap-1">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="fw-bold text-navy small">4.9 / 5.0 Rating</span>
-                    <span class="text-muted small">• 2,400+ Verified Reviews</span>
+                    </span>
+                    <span class="text-muted small fw-medium">(120+ Reviews on Google Business)</span>
                 </div>
             </div>
 
-            <!-- Testimonial Cards Grid -->
-            <div class="row g-5 pt-3">
-                <!-- Testimonial Card 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="creative-testimonial-wrapper position-relative">
-                        <!-- Tilted Background Accent Block -->
-                        <div class="creative-accent-bg accent-blue"></div>
+            <!-- Centered Auto Slider Card Container -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-slider-container position-relative mx-auto">
+                        <div class="testimonial-slider-overflow">
+                            <div class="testimonial-slider-track" id="testimonialSliderTrack">
+                                <!-- Slide 1 -->
+                                <div class="testimonial-slide-card">
+                                    <div class="t-card-inner">
+                                        <p class="t-card-quote">
+                                            "Comfort Aircon helped us select the perfect Toshiba 5-Star Inverter AC for
+                                            our master bedroom. Our monthly electric bills dropped by 35% and cooling is
+                                            whisper-silent!"
+                                        </p>
+                                        <div class="t-card-author d-flex align-items-center gap-3 mt-auto">
+                                            <img src="images/avatar_1.jpg" alt="R. Sundararam" class="t-card-avatar">
+                                            <div>
+                                                <h6 class="t-author-name mb-0">R. Sundararam</h6>
+                                                <span class="t-author-role">Homeowner, Lawspet</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <!-- Front White Card -->
-                        <div
-                            class="creative-testimonial-card bg-white rounded-4 shadow-sm border p-4 text-center position-relative z-2">
-                            <!-- Top Overlapping Initial Badge (NO PHOTO) -->
-                            <div class="creative-avatar-badge bg-gradient-blue text-white fw-bold shadow-sm">
-                                RS
-                            </div>
+                                <!-- Slide 2 -->
+                                <div class="testimonial-slide-card">
+                                    <div class="t-card-inner">
+                                        <p class="t-card-quote">
+                                            "Purchased 3 Carrier Cassette ACs for our medical clinic in White Town.
+                                            Instant GST quotation, unbeatable dealer pricing, and completed precision
+                                            installation in 24 hours!"
+                                        </p>
+                                        <div class="t-card-author d-flex align-items-center gap-3 mt-auto">
+                                            <img src="images/avatar_2.jpg" alt="Dr. Ananya V." class="t-card-avatar">
+                                            <div>
+                                                <h6 class="t-author-name mb-0">Dr. Ananya V.</h6>
+                                                <span class="t-author-role">Clinic Director, White Town</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <h4 class="fw-bold text-navy mb-1 mt-3 fs-5">R. Sundararam</h4>
-                            <p class="fst-italic text-muted small mb-3">Homeowner, Lawspet, Puducherry</p>
+                                <!-- Slide 3 -->
+                                <div class="testimonial-slide-card">
+                                    <div class="t-card-inner">
+                                        <p class="t-card-quote">
+                                            "Best authorized dealership in Puducherry! Installed a Toshiba Multi-VRF
+                                            System for our beach villa. Genuine products with official factory warranty
+                                            cards."
+                                        </p>
+                                        <div class="t-card-author d-flex align-items-center gap-3 mt-auto">
+                                            <img src="images/avatar_3.jpg" alt="K. Vigneshwar" class="t-card-avatar">
+                                            <div>
+                                                <h6 class="t-author-name mb-0">K. Vigneshwar</h6>
+                                                <span class="t-author-role">Villa Owner, ECR Road</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="d-flex justify-content-center align-items-center gap-1 text-warning mb-3 fs-6">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p class="testimonial-text text-secondary lh-base mb-4 fs-6">
-                                "Comfort Aircon helped us select the perfect <strong>Toshiba 5-Star Inverter
-                                    AC</strong>
-                                for our master bedroom. Our monthly electric bills dropped by 35% and cooling is
-                                whisper-silent!"
-                            </p>
-
-                            <!-- Bottom Overlapping Star Badge -->
-                            <div
-                                class="creative-bottom-badge bg-white shadow-sm border rounded-pill px-3 py-1 text-navy fw-semibold small">
-                                <i class="fa-solid fa-star text-warning me-1"></i> Toshiba Split AC
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="creative-testimonial-wrapper position-relative">
-                        <!-- Tilted Background Accent Block -->
-                        <div class="creative-accent-bg accent-green"></div>
-
-                        <!-- Front White Card -->
-                        <div
-                            class="creative-testimonial-card bg-white rounded-4 shadow-sm border p-4 text-center position-relative z-2">
-                            <!-- Top Overlapping Initial Badge (NO PHOTO) -->
-                            <div class="creative-avatar-badge bg-gradient-green text-white fw-bold shadow-sm">
-                                AV
-                            </div>
-
-                            <h4 class="fw-bold text-navy mb-1 mt-3 fs-5">Dr. Ananya V.</h4>
-                            <p class="fst-italic text-muted small mb-3">Clinic Owner, White Town, Puducherry</p>
-
-                            <div class="d-flex justify-content-center align-items-center gap-1 text-warning mb-3 fs-6">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p class="testimonial-text text-secondary lh-base mb-4 fs-6">
-                                "Purchased 3 <strong>Carrier Cassette ACs</strong> for our medical clinic in White
-                                Town.
-                                Instant GST quotation, unbeatable dealer pricing, and completed installation in 24
-                                hours!"
-                            </p>
-
-                            <!-- Bottom Overlapping Star Badge -->
-                            <div
-                                class="creative-bottom-badge bg-white shadow-sm border rounded-pill px-3 py-1 text-navy fw-semibold small">
-                                <i class="fa-solid fa-star text-warning me-1"></i> Carrier Cassette
+                                <!-- Slide 4 -->
+                                <div class="testimonial-slide-card">
+                                    <div class="t-card-inner">
+                                        <p class="t-card-quote">
+                                            "Outstanding turnkey commercial HVAC design and execution. The energy
+                                            efficiency and priority after-sales service give our resort guests complete
+                                            climate comfort year-round."
+                                        </p>
+                                        <div class="t-card-author d-flex align-items-center gap-3 mt-auto">
+                                            <img src="images/avatar_4.jpg" alt="S. Meenakshi" class="t-card-avatar">
+                                            <div>
+                                                <h6 class="t-author-name mb-0">S. Meenakshi</h6>
+                                                <span class="t-author-role">Resort Director, Auroville</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Testimonial Card 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="creative-testimonial-wrapper position-relative">
-                        <!-- Tilted Background Accent Block -->
-                        <div class="creative-accent-bg accent-teal"></div>
-
-                        <!-- Front White Card -->
-                        <div
-                            class="creative-testimonial-card bg-white rounded-4 shadow-sm border p-4 text-center position-relative z-2">
-                            <!-- Top Overlapping Initial Badge (NO PHOTO) -->
-                            <div class="creative-avatar-badge bg-gradient-teal text-white fw-bold shadow-sm">
-                                KV
-                            </div>
-
-                            <h4 class="fw-bold text-navy mb-1 mt-3 fs-5">K. Vigneshwar</h4>
-                            <p class="fst-italic text-muted small mb-3">Villa Owner, ECR Road, Puducherry</p>
-
-                            <div class="d-flex justify-content-center align-items-center gap-1 text-warning mb-3 fs-6">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p class="testimonial-text text-secondary lh-base mb-4 fs-6">
-                                "Best authorized dealership in Puducherry! Installed a <strong>Toshiba Multi-VRF
-                                    System</strong> for our beach villa. Genuine products with official factory
-                                warranty
-                                cards."
-                            </p>
-
-                            <!-- Bottom Overlapping Star Badge -->
-                            <div
-                                class="creative-bottom-badge bg-white shadow-sm border rounded-pill px-3 py-1 text-navy fw-semibold small">
-                                <i class="fa-solid fa-star text-warning me-1"></i> Toshiba VRF
-                            </div>
-                        </div>
+                        <!-- Testimonial Slider Dots Navigation -->
+                        <div class="testimonial-slider-dots d-flex justify-content-center align-items-center gap-2 mt-4"
+                            id="testimonialSliderDots"></div>
                     </div>
                 </div>
             </div>
@@ -1969,10 +1973,10 @@
         <div class="container-xxl">
             <div class="row gy-5">
                 <!-- Col 1: Brand Info -->
-                <div class="col-lg-5 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <a class="d-inline-block mb-3 text-decoration-none" href="#home">
                         <div class="footer-logo-box">
-                            <img src="images/logo.png" alt="Comfort Aircon - Complete Cooling Solutions"
+                            <img src="images/logo1.png" alt="Comfort Aircon - Reach For The Sky"
                                 class="footer-logo-img">
                         </div>
                     </a>
@@ -1980,6 +1984,23 @@
                         Puducherry's authorized sales dealer & distributor for Carrier & Toshiba Air Conditioning
                         Systems. Explore Split ACs, VRF Systems, Cassette ACs, and Commercial Cooling Solutions.
                     </p>
+                    <div class="footer-contact-info mb-4">
+                        <p class="mb-2">
+                            <i class="fa-solid fa-phone text-primary-blue me-2"></i>
+                            <a href="tel:+919876543210"
+                                class="text-light-slate text-decoration-none contact-highlight-phone fs-6">+91 98765
+                                43210</a>
+                        </p>
+                        <p class="mb-2">
+                            <i class="fa-solid fa-envelope text-primary-blue me-2"></i>
+                            <a href="mailto:info@comfortaircon.com"
+                                class="text-light-slate text-decoration-none contact-highlight-email fs-6">info@comfortaircon.com</a>
+                        </p>
+                        <p class="mb-0 small text-light-slate">
+                            <i class="fa-solid fa-location-dot text-primary-blue me-2"></i> 295, Thiruvalluvar Salai,
+                            Puducherry 605005
+                        </p>
+                    </div>
                     <div class="d-flex gap-2 social-icons">
                         <a href="#" class="btn btn-sm rounded-circle btn-outline-light"><i
                                 class="fa-brands fa-facebook-f"></i></a>
@@ -1993,47 +2014,83 @@
                 </div>
 
                 <!-- Col 2: Quick Links -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-6 col-6">
                     <h5 class="footer-title">Quick Links</h5>
                     <ul class="footer-links">
-                        <li><a href="index.html"><i class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Home</a>
-                        </li>
-                        <li><a href="about.html"><i class="fa-solid fa-angle-right me-2 text-primary-blue"></i>About
-                                Us</a></li>
-                        <li><a href="services.html"><i
+                        <li><a href="https://comfortaircontheme2.vercel.app/index.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Home</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/about.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>About Us</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
                                     class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Services</a></li>
-                        <li><a href="products.html"><i
+                        <li><a href="https://comfortaircontheme2.vercel.app/products.html"><i
                                     class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Products</a></li>
-                        <li><a href="gallery.html"><i
+                        <li><a href="https://comfortaircontheme2.vercel.app/gallery.html"><i
                                     class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Gallery</a></li>
-                        <li><a href="contact.html"><i class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Contact
-                                Us</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/contact.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Col 3: Contact Info -->
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="footer-title">Contact Us</h5>
-                    <div class="small text-light-slate">
-                        <p class="mb-2"><i class="fa-solid fa-location-dot text-primary-blue me-2"></i> 295,
-                            Thiruvalluvar Salai, Puducherry 605005, Puducherry, India</p>
-                        <p class="mb-2"><i class="fa-solid fa-phone text-accent-orange me-2"></i> <a
-                                href="tel:04132242111" class="text-light-slate text-decoration-none text-nowrap">0413-2242111</a>
-                            &middot; <a href="tel:9843020486" class="text-light-slate text-decoration-none text-nowrap">98430
-                                20486</a> &middot; <a href="tel:9843020458"
-                                class="text-light-slate text-decoration-none text-nowrap">98430 20458</a></p>
-                        <p class="mb-2"><i class="fa-solid fa-envelope text-primary-blue me-2"></i> <a
-                                href="mailto:info@comfortaircon.com"
-                                class="text-light-slate text-decoration-none">info@comfortaircon.com</a></p>
-                        <p class="mb-0"><i class="fa-solid fa-globe text-accent-orange me-2"></i> <a
-                                href="https://www.comfortaircon.com" target="_blank"
-                                class="text-light-slate text-decoration-none">www.comfortaircon.com</a></p>
+                <!-- Col 3: Our Services -->
+                <div class="col-lg-3 col-md-6 col-6">
+                    <h5 class="footer-title">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>AC Installation</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>AC Repair & Service</a>
+                        </li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Maintenance</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Refrigeration
+                                Solutions</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Gas Filling</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Cleaning &
+                                Troubleshooting</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Replacement</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/services.html"><i
+                                    class="fa-solid fa-angle-right me-2 text-primary-blue"></i>Annual Maintenance</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Service Areas & Direct Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Service Areas</h5>
+                    <ul class="footer-links mb-4">
+                        <li><a href="https://comfortaircontheme2.vercel.app/index.html#areas"><i
+                                    class="fa-solid fa-location-dot me-2 text-primary-blue"></i>Pondicherry</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/index.html#areas"><i
+                                    class="fa-solid fa-location-dot me-2 text-primary-blue"></i>Villupuram</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/index.html#areas"><i
+                                    class="fa-solid fa-location-dot me-2 text-primary-blue"></i>Cuddalore</a></li>
+                        <li><a href="https://comfortaircontheme2.vercel.app/index.html#areas"><i
+                                    class="fa-solid fa-location-dot me-2 text-primary-blue"></i>Nearby Locations</a>
+                        </li>
+                    </ul>
+                    <div class="pt-3 border-top border-secondary border-opacity-25">
+                        <p class="mb-2">
+                            <i class="fa-solid fa-phone text-primary-blue me-2"></i>
+                            <a href="tel:+919876543210" class="text-white text-decoration-none fw-bold fs-6">+91 98765
+                                43210</a>
+                        </p>
+                        <p class="mb-0">
+                            <i class="fa-solid fa-envelope text-primary-blue me-2"></i>
+                            <a href="mailto:info@comfortaircon.com"
+                                class="text-light-slate text-decoration-none">info@comfortaircon.com</a>
+                        </p>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom text-center">
-                <p class="mb-0 text-light-slate">© 2026 Comfort Aircon Air Conditioning & Cooling Specialist. All rights reserved.</p>
+                <p class="mb-0 text-light-slate">© 2026 Comfort Aircon Air Conditioning & Cooling Specialist. All rights
+                    reserved.</p>
             </div>
         </div>
     </footer>
@@ -2044,7 +2101,7 @@
             <div class="modal-content border-0 rounded-4 shadow-lg">
                 <div class="modal-header bg-dark-navy text-white rounded-top-4">
                     <h5 class="modal-title fw-bold"><i
-                            class="fa-solid fa-calendar-check me-2 text-accent-orange"></i>Book HVAC Appointment
+                            class="fa-solid fa-calendar-check me-2 text-primary-blue"></i>Book HVAC Appointment
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
@@ -2157,8 +2214,73 @@
     <!-- Bootstrap JS Bundle CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom Script -->
-    <script src="script.js"></script>
+    <!-- AOS (Animate On Scroll) JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Custom Script with Cache Buster -->
+    <script src="script.js?v=2.2"></script>
+    <script>
+        // Guaranteed auto-slider initialization (handles browser cache persistence)
+        (function () {
+            function initAreaSliderFallback() {
+                var areaTrack = document.getElementById('areaSliderTrack');
+                if (!areaTrack || window.__areaSliderInitialized) return;
+                window.__areaSliderInitialized = true;
+                var currentSlide = 0;
+                var totalSlides = 2;
+                var timer = null;
+
+                function updateDots(idx) {
+                    var dots = document.querySelectorAll('#areaSliderDots .area-dot');
+                    dots.forEach(function (d, i) {
+                        d.classList.toggle('active', i === idx);
+                    });
+                }
+
+                function slide(idx) {
+                    currentSlide = (idx + totalSlides) % totalSlides;
+                    areaTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                    updateDots(currentSlide);
+                }
+
+                function next() { slide(currentSlide + 1); }
+                function prev() { slide(currentSlide - 1); }
+
+                function start() {
+                    stop();
+                    timer = setInterval(next, 3800);
+                }
+                function stop() {
+                    if (timer) { clearInterval(timer); timer = null; }
+                }
+
+                var nextBtn = document.getElementById('areaNextBtn');
+                var prevBtn = document.getElementById('areaPrevBtn');
+                if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); next(); start(); });
+                if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); prev(); start(); });
+
+                var dots = document.querySelectorAll('#areaSliderDots .area-dot');
+                dots.forEach(function (d, i) {
+                    d.addEventListener('click', function (e) { e.preventDefault(); slide(i); start(); });
+                });
+
+                var container = document.querySelector('.area-slider-container');
+                if (container) {
+                    container.addEventListener('mouseenter', stop);
+                    container.addEventListener('mouseleave', start);
+                }
+
+                slide(0);
+                start();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAreaSliderFallback);
+            } else {
+                initAreaSliderFallback();
+            }
+        })();
+    </script>
 </body>
 
 </html>
