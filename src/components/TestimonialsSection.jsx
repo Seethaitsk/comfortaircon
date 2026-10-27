@@ -1,17 +1,32 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
+
+function subscribe(callback) {
+  if (typeof window === 'undefined') return () => { };
+  window.addEventListener('resize', callback);
+  return () => window.removeEventListener('resize', callback);
+}
+
+function getWindowItemsPerView() {
+  if (typeof window === 'undefined') return 2;
+  if (window.innerWidth < 768) return 1;
+  return 2;
+}
+
+function getServerItemsPerView() {
+  return 2;
+}
 
 export default function TestimonialsSection() {
-  const [activeSlide, setActiveSlide] = useState(0);
-
   const testimonials = [
     {
       id: 1,
       quote:
         'Comfort Aircon helped us select the perfect Toshiba 5-Star Inverter AC for our master bedroom. Our monthly electric bills dropped by 35% and cooling is whisper-silent!',
       name: 'R. Sundararam',
-      role: 'Homeowner, Lawspet',
+      role: 'Homeowner, Lawspet, Pondicherry',
+      tag: 'Toshiba 5-Star Inverter AC',
       avatar: '/images/avatar_1.jpg',
     },
     {
@@ -19,7 +34,8 @@ export default function TestimonialsSection() {
       quote:
         'Purchased 3 Carrier Cassette ACs for our medical clinic in White Town. Instant GST quotation, unbeatable dealer pricing, and completed precision installation in 24 hours!',
       name: 'Dr. Ananya V.',
-      role: 'Clinic Director, White Town',
+      role: 'Clinic Director, White Town, Pondicherry',
+      tag: 'Carrier 4-Way Cassette AC',
       avatar: '/images/avatar_2.jpg',
     },
     {
@@ -27,7 +43,8 @@ export default function TestimonialsSection() {
       quote:
         'Best authorized dealership in Puducherry! Installed a Toshiba Multi-VRF System for our beach villa. Genuine products with official factory warranty cards.',
       name: 'K. Vigneshwar',
-      role: 'Villa Owner, ECR Road',
+      role: 'Villa Owner, ECR Road, Pondicherry',
+      tag: 'Toshiba SMMS-u VRF System',
       avatar: '/images/avatar_3.jpg',
     },
     {
@@ -36,16 +53,145 @@ export default function TestimonialsSection() {
         'Outstanding turnkey commercial HVAC design and execution. The energy efficiency and priority after-sales service give our resort guests complete climate comfort year-round.',
       name: 'S. Meenakshi',
       role: 'Resort Director, Auroville',
+      tag: 'Turnkey Commercial HVAC',
+      avatar: '/images/avatar_4.jpg',
+    },
+    {
+      id: 5,
+      quote:
+        'Concealed ductable AC installation in our 80-year-old French quarter home was executed flawlessly without damaging architectural woodwork. Superb engineering team!',
+      name: 'M. Balasubramanian',
+      role: 'Heritage Homeowner, Heritage Town',
+      tag: 'Concealed Ductable AC',
+      avatar: '/images/avatar_1.jpg',
+    },
+    {
+      id: 6,
+      quote:
+        'Replaced two aging, power-hungry ACs with Carrier 5-Star Inverters. The technician vacuum leak-tested copper lines and cleaned up the site spotless. Very courteous staff.',
+      name: 'Priya & Rajesh Nathan',
+      role: 'Apartment Residents, Rainbow Nagar',
+      tag: 'Carrier Inverter AC & Replacement',
+      avatar: '/images/avatar_2.jpg',
+    },
+    {
+      id: 7,
+      quote:
+        'Signed an Annual Maintenance Contract (AMC) for 18 units across our plant offices. Prompt quarterly servicing, emergency breakdown response in under 2 hours, and genuine Carrier parts.',
+      name: 'V. Saravanan',
+      role: 'General Manager, Mettupalayam Industrial Estate',
+      tag: 'Comprehensive AMC Contract',
+      avatar: '/images/avatar_3.jpg',
+    },
+    {
+      id: 8,
+      quote:
+        'Transparent BOQ quotation with zero surprise charges on copper piping or outdoor bracket stands. The 10-year compressor warranty registered right in front of us. Highly recommended!',
+      name: 'Capt. R. Deshmukh',
+      role: 'Villa Owner, Cuddalore Road',
+      tag: 'Carrier Inverter AC System',
       avatar: '/images/avatar_4.jpg',
     },
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % testimonials.length);
-    }, 4500);
-    return () => clearInterval(timer);
+  // Clone first 3 items at the end so cards roll continuously without showing blank page
+  const extendedTestimonials = [
+    ...testimonials.map((t, i) => ({ ...t, _key: `orig-${t.id}-${i}` })),
+    ...testimonials.slice(0, 3).map((t, i) => ({ ...t, _key: `post-${t.id}-${i}` })),
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  const itemsPerView = useSyncExternalStore(
+    subscribe,
+    getWindowItemsPerView,
+    getServerItemsPerView
+  );
+
+  const isSlidingRef = useRef(false);
+  const touchStartXRef = useRef(0);
+  const touchEndXRef = useRef(0);
+
+  const handleNext = useCallback(() => {
+    if (isSlidingRef.current) return;
+    isSlidingRef.current = true;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    if (isSlidingRef.current) return;
+    isSlidingRef.current = true;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => {
+      if (prev === 0) return testimonials.length - 1;
+      return prev - 1;
+    });
   }, [testimonials.length]);
+
+  const goToSlide = useCallback((idx) => {
+    if (isSlidingRef.current) return;
+    isSlidingRef.current = true;
+    setIsTransitioning(true);
+    setCurrentIndex(idx);
+  }, []);
+
+  const handleTransitionEnd = () => {
+    isSlidingRef.current = false;
+    if (currentIndex >= testimonials.length) {
+      // Cloned cards are visible in place. Reset to index 0 silently with no transition.
+      setIsTransitioning(false);
+      setCurrentIndex(0);
+    }
+  };
+
+  // Safety unlock if transitionend does not trigger
+  useEffect(() => {
+    const safetyTimer = setTimeout(() => {
+      isSlidingRef.current = false;
+    }, 700);
+    return () => clearTimeout(safetyTimer);
+  }, [currentIndex]);
+
+  // Auto Slider Timer: 3.8s interval, paused on hover
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3800);
+
+    return () => clearInterval(timer);
+  }, [isPaused, handleNext]);
+
+  // Touch Swipe Handlers for mobile & tablets
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    touchStartXRef.current = e.touches[0].clientX;
+    touchEndXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    setIsPaused(false);
+    const diff = touchStartXRef.current - touchEndXRef.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+  };
+
+  const activeDot = currentIndex % testimonials.length;
+  const gapPart = (20 / itemsPerView) * currentIndex;
+  const transformStyle = `translateX(calc(-1 * (${currentIndex} * 100% / ${itemsPerView} + ${gapPart}px)))`;
+  const cardWidthStyle = `calc((100% - ${(itemsPerView - 1) * 20}px) / ${itemsPerView})`;
 
   return (
     <section
@@ -81,27 +227,57 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Centered Auto Slider Card Container */}
+        {/* Centered Continuous Auto Slider Card Container */}
         <div className="row justify-content-center">
           <div className="col-lg-10 col-xl-9">
-            <div className="testimonial-slider-container position-relative mx-auto">
+            <div
+              className="testimonial-slider-container position-relative mx-auto"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <div className="testimonial-slider-overflow">
                 <div
                   className="testimonial-slider-track"
                   style={{
-                    transform: `translateX(-${activeSlide * 100}%)`,
-                    transition: 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
+                    transform: transformStyle,
+                    transition: isTransitioning
+                      ? 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)'
+                      : 'none',
                   }}
+                  onTransitionEnd={handleTransitionEnd}
                 >
-                  {testimonials.map((t) => (
-                    <div className="testimonial-slide-card" key={t.id}>
+                  {extendedTestimonials.map((t) => (
+                    <div
+                      className="testimonial-slide-card"
+                      key={t._key}
+                      style={{
+                        flex: `0 0 ${cardWidthStyle}`,
+                        minWidth: cardWidthStyle,
+                      }}
+                    >
                       <div className="t-card-inner">
+                        <div className="d-flex align-items-center justify-content-between mb-2">
+                          <div className="text-warning small d-inline-flex gap-1">
+                            <i className="fa-solid fa-star"></i>
+                            <i className="fa-solid fa-star"></i>
+                            <i className="fa-solid fa-star"></i>
+                            <i className="fa-solid fa-star"></i>
+                            <i className="fa-solid fa-star"></i>
+                          </div>
+                          <span className="badge bg-light text-primary-blue border fw-semibold small">
+                            {t.tag}
+                          </span>
+                        </div>
                         <p className="t-card-quote">&ldquo;{t.quote}&rdquo;</p>
                         <div className="t-card-author d-flex align-items-center gap-3 mt-auto">
                           <img
                             src={t.avatar}
                             alt={t.name}
                             className="t-card-avatar"
+                            loading="lazy"
                           />
                           <div>
                             <h6 className="t-author-name mb-0">{t.name}</h6>
