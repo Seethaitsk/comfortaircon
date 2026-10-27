@@ -193,28 +193,6 @@ export default function ServicesSection() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Left Arrow Button */}
-          <button
-            type="button"
-            className="slider-arrow-btn slider-arrow-left"
-            id="servicesPrevBtn"
-            onClick={handlePrev}
-            aria-label="Previous Services"
-          >
-            <i className="fa-solid fa-chevron-left"></i>
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            type="button"
-            className="slider-arrow-btn slider-arrow-right"
-            id="servicesNextBtn"
-            onClick={handleNext}
-            aria-label="Next Services"
-          >
-            <i className="fa-solid fa-chevron-right"></i>
-          </button>
-
           {/* Slider Overflow Window */}
           <div
             className="services-slider-overflow"

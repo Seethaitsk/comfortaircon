@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback, useSyncExternalStore }
 import ProductPanel from './ProductPanel';
 
 function subscribeReducedMotion(callback) {
-  if (typeof window === 'undefined') return () => {};
+  if (typeof window === 'undefined') return () => { };
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   mediaQuery.addEventListener('change', callback);
   return () => mediaQuery.removeEventListener('change', callback);
@@ -26,112 +26,112 @@ export default function ProductPanels({ openSpec, openAppointment }) {
       indexStr: '01',
       category: 'Split AC',
       name: 'Carrier Split Room AC',
-      brand: 'CARRIER',
-      brandClass: 'carrier',
-      badge: 'Wall Mounted Split',
-      rating: '5.0 (5-Star Rated)',
-      desc: 'High-efficiency inverter wall split AC with rapid cool mode, ultra-quiet operation, and PM 2.5 air filtration.',
-      points: [
+      model: 'Ester Neo 5-Star Inverter',
+      specs: [
+        { label: 'Capacity', value: '1.5 Ton (5-Star)' },
+        { label: 'Compressor', value: 'Dual Inverter Rotary' },
+        { label: 'Filtration', value: 'PM 2.5 Micro Filter' },
+        { label: 'Noise Level', value: '21 dB Ultra Quiet' },
+      ],
+      features: [
         'Rapid Cool Inverter Energy Saver',
         'PM 2.5 Micro-Air Filtration System',
-        'Whisper-Quiet 21dB Operation',
+        '10-Year Compressor Warranty',
       ],
-      specs: '1.5 Ton 5-Star Inverter • PM 2.5 Air Filter • 10-Year Compressor Warranty • Ultra Quiet 21dB',
-      img: '/images/carrier-split-ac.jpg',
+      img: '/images/carrier-split-ac.png',
       bgTint: '#F0F8FF', // Soft icy blue tint 1
       borderColor: 'rgba(0, 120, 191, 0.16)',
-      isToshiba: false,
     },
     {
       id: 2,
       indexStr: '02',
       category: 'Cassette AC',
       name: 'Carrier 4-Way Cassette AC',
-      brand: 'CARRIER',
-      brandClass: 'carrier',
-      badge: 'Ceiling Cassette',
-      rating: '4.9 (Office Favorite)',
-      desc: 'Sleek 4-way ceiling cassette with 360-degree uniform airflow distribution for offices, showrooms, and open layouts.',
-      points: [
+      model: 'Superia 40KV 4-Way Series',
+      specs: [
+        { label: 'Airflow', value: '360° Uniform Flow' },
+        { label: 'Drain Pump', value: 'Built-in High Lift' },
+        { label: 'Profile', value: 'Slim Depth Design' },
+        { label: 'Control', value: 'Wireless Remote Included' },
+      ],
+      features: [
         '360° Uniform Airflow Dispersion',
         'Built-in High Lift Condensate Pump',
         'Slim Architectural Ceiling Profile',
       ],
-      specs: '360° Airflow Louvers • Built-in Lift Condensate Drain Pump • Slim Ceiling Depth • Wireless Remote',
-      img: '/images/carrier-cassette.jpg',
+      img: '/images/carrier-cassette.png',
       bgTint: '#EAF4FC', // Soft icy blue tint 2
       borderColor: 'rgba(0, 120, 191, 0.18)',
-      isToshiba: false,
     },
     {
       id: 3,
       indexStr: '03',
       category: 'Ductable AC',
       name: 'Carrier Concealed Ductable AC',
-      brand: 'CARRIER',
-      brandClass: 'carrier',
-      badge: 'Concealed Ductable',
-      rating: '4.9 Architectural',
-      desc: 'Concealed ceiling split unit providing seamless hidden cooling with custom linear diffusers for luxury residences.',
-      points: [
+      model: 'Concealed 40VD High-Static',
+      specs: [
+        { label: 'Installation', value: '100% In-Ceiling' },
+        { label: 'Blower', value: 'High Static Pressure' },
+        { label: 'Diffusers', value: 'Linear Grill Integration' },
+        { label: 'Control', value: 'Central Automation Ready' },
+      ],
+      features: [
         '100% Invisible Ceiling Concealment',
         'High Static Pressure Performance',
-        'Architectural Linear Diffuser Ready',
+        'Central Automation & BMS Ready',
       ],
-      specs: '100% Concealed In-Ceiling • High Static Pressure Blower • Linear Grill Integration • Central Automation Ready',
-      img: '/images/carrier-duct.jpg',
+      img: '/images/carrier-duct.png',
       bgTint: '#E1EFFB', // Soft icy blue tint 3
       borderColor: 'rgba(0, 120, 191, 0.20)',
-      isToshiba: false,
     },
     {
       id: 4,
       indexStr: '04',
       category: 'VRF Systems',
       name: 'Carrier Commercial VRF System',
-      brand: 'CARRIER',
-      brandClass: 'carrier',
-      badge: 'Commercial Multi-Zone',
-      rating: '4.9 Premium VRF',
-      desc: 'Variable Refrigerant Flow system designed for whole-building multi-zone climate control with up to 64 indoor units.',
-      points: [
+      model: 'X-Power Commercial VRF',
+      specs: [
+        { label: 'Capacity', value: 'Up to 64 Indoor Units' },
+        { label: 'Compressor', value: 'Variable DC Inverter' },
+        { label: 'Ambient Temp', value: '52°C Cooling Durability' },
+        { label: 'Operation', value: 'Multi-Zone Independent' },
+      ],
+      features: [
         'Multi-Zone Independent Room Control',
         'Extreme 52°C Ambient Cooling Durability',
         'Full Inverter Energy Efficiency COP',
       ],
-      specs: 'Up to 64 Indoor Units • Variable Speed DC Inverter • Centralized Smart Touch Controller • 52°C Ambient Cooling',
-      img: '/images/carrier-vrf-ac.jpg',
+      img: '/images/carrier-vrf-ac.png',
       bgTint: '#D9EBF9', // Soft icy blue tint 4
       borderColor: 'rgba(0, 120, 191, 0.22)',
-      isToshiba: false,
     },
     {
       id: 5,
       indexStr: '05',
       category: 'Toshiba Range',
       name: 'Toshiba SMMS-u Japanese VRF',
-      brand: 'TOSHIBA',
-      brandClass: 'toshiba',
-      badge: 'Japanese Engineering VRF',
-      rating: '5.0 Japanese Tech',
-      desc: 'State-of-the-art Japanese engineering SMMS-u VRF system engineered for extreme temperature durability and maximum COP.',
-      points: [
+      model: 'SMMS-u Next-Gen MCY-MHP',
+      specs: [
+        { label: 'Engineering', value: 'Japanese SMMS-u Tech' },
+        { label: 'Compressor', value: 'Twin Rotary Inverter' },
+        { label: 'Heat Exchanger', value: 'Magic Coil Self-Clean' },
+        { label: 'Efficiency', value: 'Industry-Leading COP' },
+      ],
+      features: [
         'Twin Rotary DC Inverter Compressor',
         'Magic Coil Self-Cleaning Heat Exchanger',
-        'Industry-Leading Seasonal EER & COP',
+        'Advanced Triple Liquid Sub-cooling',
       ],
-      specs: 'SMMS-u Technology • Twin Rotary DC Inverter Compressor • Intelligent Oil Control • Extreme Heat Resilient',
-      img: '/images/toshiba-vrf.jpg',
-      bgTint: '#FEF2F2', // Soft red tint (only for Toshiba as specified)
-      borderColor: 'rgba(220, 38, 38, 0.22)',
-      isToshiba: true,
+      img: '/images/toshiba-vrf.png',
+      bgTint: '#E6F2FC', // Soft icy blue (NO RED)
+      borderColor: 'rgba(0, 120, 191, 0.20)',
     },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [isRevealed, setIsRevealed] = useState(false);
+  const [isRevealed, setIsRevealed] = useState(true);
 
   const containerRef = useRef(null);
   const panelRefs = useRef([]);

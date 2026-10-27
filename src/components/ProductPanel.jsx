@@ -15,7 +15,6 @@ export default function ProductPanel({
   onSelect,
   onHover,
   onKeyDown,
-  openSpec,
   openAppointment,
   panelRef,
   isRevealed,
@@ -24,20 +23,14 @@ export default function ProductPanel({
   return (
     <div
       ref={panelRef}
-      className={`product-panel ${isActive ? 'is-expanded' : 'is-collapsed'} ${product.isToshiba ? 'is-toshiba' : ''
-        }`}
+      className={`product-panel ${isActive ? 'is-expanded' : 'is-collapsed'}`}
       style={{
         backgroundColor: product.bgTint,
         borderColor: product.borderColor,
-        transition: isRevealed
-          ? undefined
-          : `opacity 500ms ease ${revealDelay}ms, transform 500ms ease ${revealDelay}ms`,
-        opacity: isRevealed ? 1 : 0,
-        transform: isRevealed ? 'translateY(0)' : 'translateY(24px)',
       }}
       onMouseEnter={onHover}
     >
-      {/* Collapsed Trigger Button: Accessible button with aria-expanded & clean keyboard handling */}
+      {/* Collapsed Trigger Button */}
       <button
         type="button"
         id={`panel-header-${product.id}`}
@@ -59,7 +52,14 @@ export default function ProductPanel({
         </span>
       </button>
 
-      {/* Expanded Content Area: Info Column (Left) + Product Image with Airflow Stream (Right) */}
+      {/* Expanded Content Area:
+          1. Image: Product photo
+          2. Name: Product name
+          3. Model: Product model
+          4. Specifications: Technical specifications
+          5. Features: Key features
+          6. Enquire button: Opens the shared enquiry form
+      */}
       <div
         id={`panel-content-${product.id}`}
         className="panel-expanded-view"
@@ -67,92 +67,78 @@ export default function ProductPanel({
         aria-labelledby={`panel-header-${product.id}`}
         aria-hidden={!isActive}
       >
-        {/* Left Column: Product Info & Actions */}
+        {/* Left Column: Product Info & Enquire Action */}
         <div className="panel-content-col">
           <div className="panel-info-header">
-            <div className="d-flex align-items-center gap-2 mb-2 flex-wrap">
-              <span className={`brand-pill ${product.brandClass}`}>
-                {product.brand}
-              </span>
-              <span className="badge-soft-blue">{product.badge}</span>
-              <span className="text-warning small ms-auto d-inline-flex align-items-center gap-1">
-                <i className="fa-solid fa-star"></i> {product.rating}
+            {/* 2. Product Name */}
+            <h3 className="panel-product-title mb-1.5 text-dark-navy">
+              {product.name}
+            </h3>
+
+            {/* 3. Product Model */}
+            <div className="panel-product-model mb-2">
+              <span className="model-badge">
+                <i className="fa-solid fa-tag me-1.5 opacity-75"></i>
+                <span className="fw-semibold">Model:</span>&nbsp;{product.model}
               </span>
             </div>
 
-            <h3 className="panel-product-title mb-2 text-dark-navy">{product.name}</h3>
-            <p className="panel-product-desc text-muted small mb-3">
-              {product.desc}
-            </p>
+            {/* 4. Technical Specifications */}
+            <div className="panel-specs-section mb-2">
+              <div className="panel-section-label mb-1.5">
+                <i className="fa-solid fa-sliders me-1.5 text-primary"></i>
+                <span>Technical Specifications</span>
+              </div>
+              <div className="panel-specs-grid">
+                {product.specs.map((item, idx) => (
+                  <div key={idx} className="panel-spec-item">
+                    <span className="spec-label">{item.label}</span>
+                    <span className="spec-value">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <ul className="panel-feature-list list-unstyled mb-3">
-              {product.points.map((pt) => (
-                <li key={pt} className="mb-1.5 d-flex align-items-start gap-2 text-muted small">
-                  <i className="fa-solid fa-circle-check text-success mt-1"></i>
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
+            {/* 5. Key Features */}
+            <div className="panel-features-section mb-2">
+              <div className="panel-section-label mb-1.5">
+                <i className="fa-solid fa-circle-check me-1.5 text-success"></i>
+                <span>Key Features</span>
+              </div>
+              <ul className="panel-feature-list list-unstyled mb-0">
+                {product.features.map((feature, idx) => (
+                  <li key={idx} className="mb-1 d-flex align-items-center gap-2">
+                    <i className="fa-solid fa-check text-success small"></i>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Action Buttons Row: Specs, Enquire Now, WhatsApp */}
-          <div className="panel-actions-row d-flex align-items-center gap-2 pt-3 border-top mt-auto">
+          {/* 6. Enquire Button: Opens the shared enquiry form */}
+          <div className="panel-actions-row pt-1 mt-auto">
             <button
               type="button"
-              className="btn btn-sm btn-panel-specs"
-              onClick={(e) => {
-                e.stopPropagation();
-                openSpec({
-                  name: product.name,
-                  brand: `${product.brand} System`,
-                  desc: product.desc,
-                  specs: product.specs,
-                  img: product.img,
-                });
-              }}
-              title={`View technical specifications for ${product.name}`}
-            >
-              <i className="fa-solid fa-circle-info me-1"></i> Specs
-            </button>
-
-            <button
-              type="button"
-              className="btn btn-sm btn-panel-enquire"
+              className="btn btn-panel-enquire d-inline-flex align-items-center justify-content-center gap-2"
               onClick={(e) => {
                 e.stopPropagation();
                 openAppointment(product.name);
               }}
               title={`Enquire for ${product.name}`}
             >
-              <i className="fa-solid fa-clipboard-question me-1"></i> Enquire Now
+              <i className="fa-solid fa-clipboard-question"></i>
+              <span>Enquire Now</span>
             </button>
-
-            <a
-              href={`https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20would%20like%20to%20enquire%20about%20${encodeURIComponent(
-                product.name
-              )}.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-sm btn-panel-whatsapp text-white"
-              onClick={(e) => e.stopPropagation()}
-              title="Enquire on WhatsApp"
-              aria-label="Enquire on WhatsApp"
-            >
-              <i className="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
 
-        {/* Right Column: Large Image + Ice-Blue Looping Airflow Animation */}
+        {/* 1. Product Image (Right Column) */}
         <div className="panel-image-col">
-          {/* Airflow Streamlines looping continuously beneath unit */}
-
-
-          {/* Product Image */}
           <div className="panel-img-wrapper">
             <img
               src={product.img}
-              alt={product.name}
+              alt={`${product.name} - ${product.model}`}
               className="panel-product-image"
               loading="lazy"
             />
