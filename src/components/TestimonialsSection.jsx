@@ -114,21 +114,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
 
-              {/* Slider Dots Navigation */}
-              <div
-                className="testimonial-slider-dots d-flex justify-content-center align-items-center gap-2 mt-4"
-                id="testimonialSliderDots"
-              >
-                {testimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    className={`area-dot ${activeSlide === idx ? 'active' : ''}`}
-                    onClick={() => setActiveSlide(idx)}
-                    aria-label={`Go to Testimonial ${idx + 1}`}
-                  />
-                ))}
-              </div>
+
             </div>
           </div>
         </div>

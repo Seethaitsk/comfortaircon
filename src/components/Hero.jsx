@@ -31,7 +31,7 @@ export default function Hero() {
 
   return (
     <section
-      className="hero-section pt-4 pt-lg-4 pb-4 pb-lg-5 position-relative overflow-hidden"
+      className="hero-section pt-2 pt-lg-2 pb-4 pb-lg-5 position-relative overflow-hidden"
       id="home"
     >
       {/* Live Ambient Animated Waves & Background Glows */}
@@ -41,7 +41,7 @@ export default function Hero() {
       </div>
 
       <div className="container-xxl position-relative z-2">
-        <div className="row align-items-center gy-5">
+        <div className="row align-items-center gy-4 gy-lg-5">
           {/* Left Column: Content & Interactive Controls */}
           <div className="col-lg-6 hero-content">
             {/* Status Badge */}
@@ -148,18 +148,7 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Carousel Navigation Indicators */}
-              <div className="hero-carousel-indicators">
-                {slides.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    className={idx === currentSlide ? 'active' : ''}
-                    onClick={() => setCurrentSlide(idx)}
-                    aria-label={`Slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
+
             </div>
           </div>
         </div>

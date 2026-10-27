@@ -572,8 +572,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (areaTrack && !window.__areaSliderInitialized) {
         window.__areaSliderInitialized = true;
-        const slideGroups = areaTrack.querySelectorAll('.area-slide-group');
-        const totalAreaSlides = slideGroups.length > 0 ? slideGroups.length : 2;
+        const slideGroups = areaTrack.querySelectorAll('.area-slide-group, .area-slide-single');
+        const totalAreaSlides = slideGroups.length > 0 ? slideGroups.length : 4;
         let currentAreaSlide = 0;
         let areaTimer = null;
 
@@ -582,6 +582,15 @@ document.addEventListener('DOMContentLoaded', () => {
             dots.forEach((dot, idx) => {
                 dot.classList.toggle('active', idx === currentAreaSlide);
             });
+            const tabs = document.querySelectorAll('.area-tabs-nav .area-tab-btn');
+            tabs.forEach((tab, idx) => {
+                tab.classList.toggle('active', idx === currentAreaSlide);
+            });
+            const counter = document.getElementById('areaSlideCounter');
+            if (counter) {
+                const names = ['Pondicherry', 'Villupuram', 'Cuddalore', 'Nearby Areas'];
+                counter.textContent = `${currentAreaSlide + 1} of ${totalAreaSlides} · ${names[currentAreaSlide] || ''}`;
+            }
         }
 
         function goToAreaSlide(index) {
@@ -644,6 +653,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Tab button navigation
+        const areaTabBtns = document.querySelectorAll('.area-tabs-nav .area-tab-btn');
+        areaTabBtns.forEach((tab, idx) => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToAreaSlide(idx);
+                resetAreaTimer();
+            });
+        });
+
         // Pause on mouse hover & resume on leave
         if (areaSliderContainer) {
             areaSliderContainer.addEventListener('mouseenter', stopAreaTimer);
@@ -671,6 +690,143 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize state & start auto sliding
         goToAreaSlide(0);
         startAreaTimer();
+    }
+
+    // 9.55 Services 3-Card Auto Slider
+    const servicesTrack = document.getElementById('servicesSliderTrack');
+    const servicesSliderOuter = document.getElementById('servicesSliderOuter');
+    const servicesPrevBtn = document.getElementById('servicesPrevBtn');
+    const servicesNextBtn = document.getElementById('servicesNextBtn');
+    const servicesDots = document.querySelectorAll('#servicesSliderDots .services-dot');
+
+    if (servicesTrack && !window.__servicesSliderInitialized) {
+        window.__servicesSliderInitialized = true;
+
+        let currentServiceIdx = 0;
+        const totalServices = 8;
+        let serviceTimer = null;
+        let isSliding = false;
+
+        function getItemsPerView() {
+            if (window.innerWidth < 640) return 1;
+            if (window.innerWidth < 992) return 2;
+            return 3;
+        }
+
+        function updateServiceCardStyles() {
+            const perView = getItemsPerView();
+            const gap = 24;
+            const items = servicesTrack.querySelectorAll('.services-slide-item');
+            const cardWidth = `calc((100% - ${(perView - 1) * gap}px) / ${perView})`;
+            items.forEach(item => {
+                item.style.width = cardWidth;
+                item.style.flex = `0 0 ${cardWidth}`;
+            });
+            applyServiceTransform(currentServiceIdx, false);
+        }
+
+        function applyServiceTransform(idx, animate = true) {
+            const perView = getItemsPerView();
+            const gapPart = (24 / perView) * idx;
+            servicesTrack.style.transition = animate ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+            servicesTrack.style.transform = `translateX(calc(-1 * (${idx} * 100% / ${perView} + ${gapPart}px)))`;
+
+            const activeDotIdx = idx % totalServices;
+            servicesDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === activeDotIdx);
+            });
+        }
+
+        function nextServiceSlide() {
+            if (isSliding) return;
+            isSliding = true;
+            currentServiceIdx++;
+            applyServiceTransform(currentServiceIdx, true);
+        }
+
+        function prevServiceSlide() {
+            if (isSliding) return;
+            isSliding = true;
+            if (currentServiceIdx === 0) {
+                currentServiceIdx = totalServices - 1;
+            } else {
+                currentServiceIdx--;
+            }
+            applyServiceTransform(currentServiceIdx, true);
+        }
+
+        servicesTrack.addEventListener('transitionend', () => {
+            isSliding = false;
+            if (currentServiceIdx >= totalServices) {
+                currentServiceIdx = 0;
+                applyServiceTransform(0, false);
+            }
+        });
+
+        if (servicesNextBtn) {
+            servicesNextBtn.addEventListener('click', () => {
+                nextServiceSlide();
+                restartServiceTimer();
+            });
+        }
+
+        if (servicesPrevBtn) {
+            servicesPrevBtn.addEventListener('click', () => {
+                prevServiceSlide();
+                restartServiceTimer();
+            });
+        }
+
+        servicesDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                if (isSliding) return;
+                isSliding = true;
+                currentServiceIdx = i;
+                applyServiceTransform(currentServiceIdx, true);
+                restartServiceTimer();
+            });
+        });
+
+        function startServiceTimer() {
+            stopServiceTimer();
+            serviceTimer = setInterval(nextServiceSlide, 3800);
+        }
+
+        function stopServiceTimer() {
+            if (serviceTimer) clearInterval(serviceTimer);
+        }
+
+        function restartServiceTimer() {
+            stopServiceTimer();
+            startServiceTimer();
+        }
+
+        if (servicesSliderOuter) {
+            servicesSliderOuter.addEventListener('mouseenter', stopServiceTimer);
+            servicesSliderOuter.addEventListener('mouseleave', startServiceTimer);
+        }
+
+        // Mobile touch swipe support
+        let touchStart = 0;
+        let touchEnd = 0;
+        servicesTrack.addEventListener('touchstart', (e) => {
+            stopServiceTimer();
+            touchStart = e.touches[0].screenX;
+        }, { passive: true });
+
+        servicesTrack.addEventListener('touchend', (e) => {
+            touchEnd = e.changedTouches[0].screenX;
+            if (touchStart - touchEnd > 40) {
+                nextServiceSlide();
+            } else if (touchEnd - touchStart > 40) {
+                prevServiceSlide();
+            }
+            startServiceTimer();
+        }, { passive: true });
+
+        window.addEventListener('resize', updateServiceCardStyles);
+        updateServiceCardStyles();
+        startServiceTimer();
     }
 
     // 9.6 Home Signature: Hero Rotating Subline

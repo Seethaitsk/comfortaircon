@@ -79,7 +79,7 @@
     </nav>
 
     <!-- 3. HERO / BANNER SECTION -->
-    <section class="hero-section pt-4 pt-lg-4 pb-4 pb-lg-5 position-relative overflow-hidden" id="home">
+    <section class="hero-section pt-2 pt-lg-2 pb-4 pb-lg-5 position-relative overflow-hidden" id="home">
         <!-- Live Ambient Animated Waves & Background Glows -->
         <div class="hero-animated-bg">
             <div class="air-wave air-wave-1"></div>
@@ -87,7 +87,7 @@
         </div>
 
         <div class="container-xxl position-relative z-2">
-            <div class="row align-items-center gy-5">
+            <div class="row align-items-center gy-4 gy-lg-5">
 
                 <!-- Left Column: Content & Interactive Controls -->
                 <div class="col-lg-6 hero-content">
@@ -295,157 +295,240 @@
                     spaces.</p>
             </div>
 
-            <div class="row g-4">
-                <!-- Service 1: AC Installation -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/1.png" alt="AC Installation - Carrier & Toshiba">
+            <!-- 3-Card Auto Slider Outer Wrapper -->
+            <div class="services-slider-outer position-relative" id="servicesSliderOuter">
+                <!-- Navigation Arrows -->
+                <button type="button" class="slider-arrow-btn slider-arrow-left" id="servicesPrevBtn" aria-label="Previous Services">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button type="button" class="slider-arrow-btn slider-arrow-right" id="servicesNextBtn" aria-label="Next Services">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Slider Overflow -->
+                <div class="services-slider-overflow" id="servicesSliderOverflow">
+                    <div class="services-slider-track" id="servicesSliderTrack" style="transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                        <!-- Service 1: AC Installation -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/1.png" alt="AC Installation - Carrier & Toshiba" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">AC Installation</h4>
+                                    <p class="text-muted small mb-3">Precision wall mounting, copper piping, vacuum leak
+                                        testing, and electrical wiring for split, cassette, and ductable ACs.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">AC Installation</h4>
-                            <p class="text-muted small mb-3">Precision wall mounting, copper piping, vacuum leak
-                                testing, and electrical wiring for split, cassette, and ductable ACs.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
+
+                        <!-- Service 2: Repair -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/2.png" alt="AC Repair Services" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">AC Repair & Service</h4>
+                                    <p class="text-muted small mb-3">Fast on-site troubleshooting for no-cooling, compressor
+                                        trip, PCB circuit issues, fan motor failure, and water dripping.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3: Service & Maintenance -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/3.png" alt="AC Service & Maintenance" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">Service & Maintenance</h4>
+                                    <p class="text-muted small mb-3">Multi-point seasonal inspection to maintain peak cooling
+                                        performance, lower energy consumption, and prevent sudden breakdowns.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 4: Gas Filling -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/4.png" alt="AC Gas Filling Services" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">Gas Filling & Leak Repair</h4>
+                                    <p class="text-muted small mb-3">Electronic leak detection, nitrogen pressure testing,
+                                        copper brazing repairs, vacuuming, and pure R32/R410A gas charging.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 5: Cleaning & Troubleshooting -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/5.png" alt="AC Cleaning & Troubleshooting" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">Cleaning & Troubleshooting</h4>
+                                    <p class="text-muted small mb-3">High-pressure water jacket foam cleaning to purge deep
+                                        dust, mold, and odor. Complete electrical & thermistor troubleshooting.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 6: Replacement -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/6.png" alt="AC Replacement and Upgrade" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">AC Replacement</h4>
+                                    <p class="text-muted small mb-3">Trade in your old, noisy AC for high-efficiency 5-Star
+                                        Carrier or Toshiba inverter systems with attractive exchange bonuses.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 7: Annual Maintenance -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/7.png" alt="Annual Maintenance Contract AMC" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">Annual Maintenance (AMC)</h4>
+                                    <p class="text-muted small mb-3">Comprehensive & Non-Comprehensive AMC packages with
+                                        scheduled preventive visits, free breakdown callouts, and spare discounts.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 8: Commercial AC Services -->
+                        <div class="services-slide-item">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/8.png" alt="Commercial AC Services" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">Commercial AC Services</h4>
+                                    <p class="text-muted small mb-3">Toshiba SMMS-u VRF engineering, architectural ceiling
+                                        cassettes, concealed ducting, and corporate climate engineering.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloned 1 for seamless infinite loop -->
+                        <div class="services-slide-item" aria-hidden="true">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/1.png" alt="AC Installation - Carrier & Toshiba" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">AC Installation</h4>
+                                    <p class="text-muted small mb-3">Precision wall mounting, copper piping, vacuum leak
+                                        testing, and electrical wiring for split, cassette, and ductable ACs.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloned 2 for seamless infinite loop -->
+                        <div class="services-slide-item" aria-hidden="true">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/2.png" alt="AC Repair Services" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">AC Repair & Service</h4>
+                                    <p class="text-muted small mb-3">Fast on-site troubleshooting for no-cooling, compressor
+                                        trip, PCB circuit issues, fan motor failure, and water dripping.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloned 3 for seamless infinite loop -->
+                        <div class="services-slide-item" aria-hidden="true">
+                            <div class="service-card d-flex flex-column h-100">
+                                <div class="service-img-wrapper">
+                                    <img src="images/3.png" alt="AC Service & Maintenance" loading="lazy">
+                                </div>
+                                <div class="service-card-body d-flex flex-column flex-grow-1">
+                                    <h4 class="fw-bold fs-5 mb-2">Service & Maintenance</h4>
+                                    <p class="text-muted small mb-3">Multi-point seasonal inspection to maintain peak cooling
+                                        performance, lower energy consumption, and prevent sudden breakdowns.</p>
+                                    <div class="mt-auto">
+                                        <a href="services.html" class="btn-service-link w-100 justify-content-center">
+                                            View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Repair -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/2.png" alt="AC Repair Services">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">AC Repair & Service</h4>
-                            <p class="text-muted small mb-3">Fast on-site troubleshooting for no-cooling, compressor
-                                trip, PCB circuit issues, fan motor failure, and water dripping.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 3: Service & Maintenance -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/3.png" alt="AC Service & Maintenance">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">Service & Maintenance</h4>
-                            <p class="text-muted small mb-3">Multi-point seasonal inspection to maintain peak cooling
-                                performance, lower energy consumption, and prevent sudden breakdowns.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 4: Gas Filling -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/4.png" alt="AC Gas Filling Services">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">Gas Filling & Leak Repair</h4>
-                            <p class="text-muted small mb-3">Electronic leak detection, nitrogen pressure testing,
-                                copper brazing repairs, vacuuming, and pure R32/R410A gas charging.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 5: Cleaning & Troubleshooting -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/5.png" alt="AC Cleaning & Troubleshooting">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">Cleaning & Troubleshooting</h4>
-                            <p class="text-muted small mb-3">High-pressure water jacket foam cleaning to purge deep
-                                dust, mold, and odor. Complete electrical & thermistor troubleshooting.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 6: Replacement -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/6.png" alt="AC Replacement and Upgrade">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">AC Replacement</h4>
-                            <p class="text-muted small mb-3">Trade in your old, noisy AC for high-efficiency 5-Star
-                                Carrier or Toshiba inverter systems with attractive exchange bonuses.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 7: Annual Maintenance -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/7.png" alt="Annual Maintenance Contract AMC">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">Annual Maintenance (AMC)</h4>
-                            <p class="text-muted small mb-3">Comprehensive & Non-Comprehensive AMC packages with
-                                scheduled preventive visits, free breakdown callouts, and spare discounts.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 8: Commercial AC Services -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card d-flex flex-column h-100">
-                        <div class="service-img-wrapper">
-                            <img src="images/8.png" alt="Commercial AC Services">
-                        </div>
-                        <div class="service-card-body d-flex flex-column flex-grow-1">
-                            <h4 class="fw-bold fs-5 mb-2">Commercial AC Services</h4>
-                            <p class="text-muted small mb-3">Toshiba SMMS-u VRF engineering, architectural ceiling
-                                cassettes, concealed ducting, and corporate climate engineering.</p>
-                            <div class="mt-auto">
-                                <a href="services.html" class="btn-service-link w-100 justify-content-center">
-                                    View Details on Services Page <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 8 Pagination Dots -->
+                <div class="services-slider-dots d-flex justify-content-center align-items-center gap-2 mt-4" id="servicesSliderDots">
+                    <button type="button" class="services-dot active" data-slide="0" aria-label="Go to AC Installation" title="AC Installation"></button>
+                    <button type="button" class="services-dot" data-slide="1" aria-label="Go to AC Repair & Service" title="AC Repair & Service"></button>
+                    <button type="button" class="services-dot" data-slide="2" aria-label="Go to Service & Maintenance" title="Service & Maintenance"></button>
+                    <button type="button" class="services-dot" data-slide="3" aria-label="Go to Gas Filling & Leak Repair" title="Gas Filling & Leak Repair"></button>
+                    <button type="button" class="services-dot" data-slide="4" aria-label="Go to Cleaning & Troubleshooting" title="Cleaning & Troubleshooting"></button>
+                    <button type="button" class="services-dot" data-slide="5" aria-label="Go to AC Replacement" title="AC Replacement"></button>
+                    <button type="button" class="services-dot" data-slide="6" aria-label="Go to Annual Maintenance (AMC)" title="Annual Maintenance (AMC)"></button>
+                    <button type="button" class="services-dot" data-slide="7" aria-label="Go to Commercial AC Services" title="Commercial AC Services"></button>
                 </div>
             </div>
 
@@ -931,7 +1014,29 @@
     <section class="why-choose-us-section" id="why-choose-us">
         <div class="container-xxl">
             <div class="row align-items-center gy-5">
-                <div class="col-lg-6" data-aos="fade-up">
+                <!-- Left Column (Desktop): Energy Efficiency Upgrade Image Card -->
+                <div class="col-lg-6 order-lg-1 order-2" data-aos="fade-right" data-aos-delay="200">
+                    <div class="p-4 rounded-4 bg-white text-dark shadow-lg">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                            <h4 class="fw-bold mb-0 text-dark-navy">
+                                <i class="fa-solid fa-chart-line text-primary-blue me-2"></i>Energy Efficiency Upgrade
+                            </h4>
+                            <span class="badge bg-success text-white">Save Up To 50%</span>
+                        </div>
+                        <img src="images/livingroom.png" alt="Comfort Aircon Energy Saving Living Room Installation"
+                            class="img-fluid rounded-3 mb-3 border">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                            <div class="d-flex flex-wrap gap-1">
+                                <span class="badge bg-secondary me-1 mb-1">Old AC: 12 SEER</span>
+                                <span class="badge bg-success mb-1">Carrier 5-Star: 22 SEER Inverter</span>
+                            </div>
+                            <strong class="text-primary-blue fs-6">Significantly Lower Power Bills</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Desktop): Section Title, Description & 4 Feature Cards -->
+                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left">
                     <span class="section-tag mb-2">
                         <i class="fa-solid fa-medal me-1"></i> WHY CARRIER
                     </span>
@@ -939,7 +1044,7 @@
                         Why Choose <span class="gradient-word">Comfort Aircon</span>?
                     </h2>
                     <p class="text-light opacity-75 mb-4 fs-6">
-                        As Puducherry's premier authorized Carrier & Toshiba AC dealership for over 25 years, we combine
+                        As Puducherry's premier authorized Carrier &amp; Toshiba AC dealership for over 25 years, we combine
                         official manufacturer backing, factory-trained HVAC engineers, transparent pricing, and rapid
                         local service across Pondicherry, Villupuram, and Cuddalore.
                     </p>
@@ -982,26 +1087,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 rounded-4 bg-white text-dark shadow-lg">
-                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-                            <h4 class="fw-bold mb-0 text-dark-navy">
-                                <i class="fa-solid fa-chart-line text-primary-blue me-2"></i>Energy Efficiency Upgrade
-                            </h4>
-                            <span class="badge bg-success text-white">Save Up To 50%</span>
-                        </div>
-                        <img src="images/livingroom.png" alt="Comfort Aircon Energy Saving Living Room Installation"
-                            class="img-fluid rounded-3 mb-3 border">
-                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-                            <div class="d-flex flex-wrap gap-1">
-                                <span class="badge bg-secondary me-1 mb-1">Old AC: 12 SEER</span>
-                                <span class="badge bg-success mb-1">Carrier 5-Star: 22 SEER Inverter</span>
-                            </div>
-                            <strong class="text-primary-blue fs-6">Significantly Lower Power Bills</strong>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1022,182 +1107,326 @@
                             maintenance across Pondicherry, Villupuram, Cuddalore, and nearby regional belts.
                         </p>
 
-                        <!-- Area Slider Container (2 cards per slide automatically sliding) -->
+                        <!-- Interactive Area Selector Tabs -->
+                        <div class="area-tabs-nav d-flex flex-wrap gap-2 mb-3">
+                            <button type="button" class="btn btn-sm rounded-pill area-tab-btn active" data-slide="0">
+                                <i class="fa-solid fa-city me-1"></i> Pondicherry
+                            </button>
+                            <button type="button" class="btn btn-sm rounded-pill area-tab-btn" data-slide="1">
+                                <i class="fa-solid fa-truck-ramp-box me-1"></i> Villupuram
+                            </button>
+                            <button type="button" class="btn btn-sm rounded-pill area-tab-btn" data-slide="2">
+                                <i class="fa-solid fa-industry me-1"></i> Cuddalore
+                            </button>
+                            <button type="button" class="btn btn-sm rounded-pill area-tab-btn" data-slide="3">
+                                <i class="fa-solid fa-compass me-1"></i> Nearby Areas
+                            </button>
+                        </div>
+
+                        <!-- Area Slider Container (One-by-one slide) -->
                         <div class="area-slider-container position-relative">
                             <div class="area-slider-overflow">
                                 <div class="area-slider-track d-flex" id="areaSliderTrack">
-                                    <!-- Slide Group 1: Pondicherry & Villupuram (2 Cards) -->
-                                    <div class="area-slide-group">
-                                        <div class="row g-3 h-100">
-                                            <!-- Card 1: Pondicherry -->
-                                            <div class="col-sm-6 col-12 d-flex">
-                                                <div class="area-card w-100">
-                                                    <div class="area-card-header">
-                                                        <div class="area-icon-box">
-                                                            <i class="fa-solid fa-city"></i>
-                                                        </div>
-                                                        <div>
-                                                            <span class="area-badge-primary">Main Hub &amp;
-                                                                Showroom</span>
-                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Pondicherry
-                                                            </h4>
+                                    <!-- Slide 1: Pondicherry -->
+                                    <div class="area-slide-single">
+                                        <div class="area-card w-100 shadow-sm border">
+                                            <div class="area-card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="area-icon-box">
+                                                        <i class="fa-solid fa-city"></i>
+                                                    </div>
+                                                    <div>
+                                                        <span class="area-badge-primary">Main Hub &amp; Showroom</span>
+                                                        <h3 class="fw-bold fs-4 mb-0 text-dark-navy">Pondicherry</h3>
+                                                    </div>
+                                                </div>
+                                                <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill small">
+                                                    <i class="fa-regular fa-clock text-primary me-1"></i> Rapid Dispatch Hub
+                                                </span>
+                                            </div>
+                                            <p class="text-secondary small mb-3 lh-base">
+                                                Complete Carrier &amp; Toshiba sales showroom, extensive warehouse inventory, genuine spare parts, and dedicated certified technician dispatch across Puducherry.
+                                            </p>
+                                            <div class="mb-3">
+                                                <div class="small fw-bold text-dark-navy mb-2 d-flex align-items-center gap-1">
+                                                    <i class="fa-solid fa-location-dot text-primary"></i>
+                                                    <span>Key Coverage Zones &amp; Localities:</span>
+                                                </div>
+                                                <div class="area-locations-tags">
+                                                    <span class="location-tag">White Town</span>
+                                                    <span class="location-tag">Lawspet</span>
+                                                    <span class="location-tag">Muthialpet</span>
+                                                    <span class="location-tag">Saram</span>
+                                                    <span class="location-tag">Villianur</span>
+                                                    <span class="location-tag">Kalapet</span>
+                                                    <span class="location-tag">Reddiarpalayam</span>
+                                                    <span class="location-tag">Gorimedu</span>
+                                                </div>
+                                            </div>
+                                            <div class="area-features-box p-3 rounded-3 mb-4">
+                                                <div class="row g-2">
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Authorized Carrier &amp; Toshiba Hub</span>
                                                         </div>
                                                     </div>
-                                                    <p class="small text-muted mb-2">Complete sales showroom, warehouse
-                                                        inventory, and dedicated technician dispatch.</p>
-                                                    <div class="area-locations-tags">
-                                                        <span class="location-tag">White Town</span>
-                                                        <span class="location-tag">Lawspet</span>
-                                                        <span class="location-tag">Muthialpet</span>
-                                                        <span class="location-tag">Saram</span>
-                                                        <span class="location-tag">Villianur</span>
-                                                        <span class="location-tag">Kalapet</span>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Same-Day Delivery &amp; Installation</span>
+                                                        </div>
                                                     </div>
-                                                    <ul class="area-features-list">
-                                                        <li><i class="fa-solid fa-circle-check"></i> Authorized Carrier
-                                                            Hub</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> Same-Day Delivery
-                                                            &amp; Setup</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> 2-Hour Quick
-                                                            Assistance</li>
-                                                    </ul>
-                                                    <div class="area-action-btns">
-                                                        <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Pondicherry."
-                                                            target="_blank" class="btn-area-whatsapp"><i
-                                                                class="fa-brands fa-whatsapp fs-5"></i>
-                                                            WhatsApp</a>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">2-Hour Rapid Technician Assistance</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">100% Genuine Spare Parts &amp; Warranty</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <!-- Card 2: Villupuram -->
-                                            <div class="col-sm-6 col-12 d-flex">
-                                                <div class="area-card w-100">
-                                                    <div class="area-card-header">
-                                                        <div class="area-icon-box">
-                                                            <i class="fa-solid fa-truck-ramp-box"></i>
-                                                        </div>
-                                                        <div>
-                                                            <span class="area-badge-primary">Full District Reach</span>
-                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Villupuram</h4>
-                                                        </div>
-                                                    </div>
-                                                    <p class="small text-muted mb-2">Doorstep Carrier sales
-                                                        consultation, commercial VRF execution, and authorized service.
-                                                    </p>
-                                                    <div class="area-locations-tags">
-                                                        <span class="location-tag">Villupuram Town</span>
-                                                        <span class="location-tag">Tindivanam</span>
-                                                        <span class="location-tag">Vikravandi</span>
-                                                        <span class="location-tag">Valavanur</span>
-                                                        <span class="location-tag">Gingee</span>
-                                                        <span class="location-tag">Mailam</span>
-                                                    </div>
-                                                    <ul class="area-features-list">
-                                                        <li><i class="fa-solid fa-circle-check"></i> Doorstep Site
-                                                            Consultation</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> Express Hub
-                                                            Dispatch</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> Certified
-                                                            Technicians</li>
-                                                    </ul>
-                                                    <div class="area-action-btns">
-                                                        <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Villupuram."
-                                                            target="_blank" class="btn-area-whatsapp"><i
-                                                                class="fa-brands fa-whatsapp fs-5"></i>
-                                                            WhatsApp</a>
-                                                    </div>
-                                                </div>
+                                            <div class="area-action-btns d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+                                                <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Pondicherry." target="_blank" rel="noopener noreferrer" class="btn-area-whatsapp flex-grow-1">
+                                                    <i class="fa-brands fa-whatsapp fs-5"></i>
+                                                    <span>WhatsApp Pondicherry Team</span>
+                                                </a>
+                                                <a href="#appointmentModal" data-bs-toggle="modal" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 shadow-xs">
+                                                    <i class="fa-regular fa-calendar-check fs-6"></i>
+                                                    <span>Book Service</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!-- Slide Group 2: Cuddalore & Nearby Areas (2 Cards) -->
-                                    <div class="area-slide-group">
-                                        <div class="row g-3 h-100">
-                                            <!-- Card 3: Cuddalore -->
-                                            <div class="col-sm-6 col-12 d-flex">
-                                                <div class="area-card w-100">
-                                                    <div class="area-card-header">
-                                                        <div class="area-icon-box"
-                                                            style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
-                                                            <i class="fa-solid fa-industry"></i>
-                                                        </div>
-                                                        <div>
-                                                            <span class="area-badge-primary"
-                                                                style="background: #D1FAE5; color: #047857;">Coastal
-                                                                &amp; Industrial</span>
-                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Cuddalore</h4>
+                                    <!-- Slide 2: Villupuram -->
+                                    <div class="area-slide-single">
+                                        <div class="area-card w-100 shadow-sm border">
+                                            <div class="area-card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="area-icon-box">
+                                                        <i class="fa-solid fa-truck-ramp-box"></i>
+                                                    </div>
+                                                    <div>
+                                                        <span class="area-badge-primary">Full District Reach</span>
+                                                        <h3 class="fw-bold fs-4 mb-0 text-dark-navy">Villupuram</h3>
+                                                    </div>
+                                                </div>
+                                                <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill small">
+                                                    <i class="fa-regular fa-clock text-primary me-1"></i> Rapid Dispatch Hub
+                                                </span>
+                                            </div>
+                                            <p class="text-secondary small mb-3 lh-base">
+                                                Doorstep Carrier sales consultation, residential split AC setups, commercial VRF execution, and authorized warranty support throughout the Villupuram district.
+                                            </p>
+                                            <div class="mb-3">
+                                                <div class="small fw-bold text-dark-navy mb-2 d-flex align-items-center gap-1">
+                                                    <i class="fa-solid fa-location-dot text-primary"></i>
+                                                    <span>Key Coverage Zones &amp; Localities:</span>
+                                                </div>
+                                                <div class="area-locations-tags">
+                                                    <span class="location-tag">Villupuram Town</span>
+                                                    <span class="location-tag">Tindivanam</span>
+                                                    <span class="location-tag">Vikravandi</span>
+                                                    <span class="location-tag">Valavanur</span>
+                                                    <span class="location-tag">Gingee</span>
+                                                    <span class="location-tag">Mailam</span>
+                                                    <span class="location-tag">Kandachipuram</span>
+                                                </div>
+                                            </div>
+                                            <div class="area-features-box p-3 rounded-3 mb-4">
+                                                <div class="row g-2">
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Doorstep Site Survey &amp; Consultation</span>
                                                         </div>
                                                     </div>
-                                                    <p class="small text-muted mb-2">Turnkey industrial cooling,
-                                                        commercial cassette solutions, and anti-corrosion ACs.</p>
-                                                    <div class="area-locations-tags">
-                                                        <span class="location-tag">Cuddalore Port</span>
-                                                        <span class="location-tag">Old Town (OT)</span>
-                                                        <span class="location-tag">Manjakuppam</span>
-                                                        <span class="location-tag">Panruti</span>
-                                                        <span class="location-tag">Neyveli</span>
-                                                        <span class="location-tag">Chidambaram</span>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Express District Dispatch Fleet</span>
+                                                        </div>
                                                     </div>
-                                                    <ul class="area-features-list">
-                                                        <li><i class="fa-solid fa-circle-check"></i> Coastal Anti-Rust
-                                                            ACs</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> Industrial &amp;
-                                                            Commercial HVAC</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> On-Site Repair
-                                                            &amp; AMC</li>
-                                                    </ul>
-                                                    <div class="area-action-btns">
-                                                        <a href="https://wa.me/919843020458?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Cuddalore."
-                                                            target="_blank" class="btn-area-whatsapp"><i
-                                                                class="fa-brands fa-whatsapp fs-5"></i>
-                                                            WhatsApp</a>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Certified Field Service Technicians</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Residential &amp; Commercial VRF Experts</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="area-action-btns d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+                                                <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Villupuram." target="_blank" rel="noopener noreferrer" class="btn-area-whatsapp flex-grow-1">
+                                                    <i class="fa-brands fa-whatsapp fs-5"></i>
+                                                    <span>WhatsApp Villupuram Team</span>
+                                                </a>
+                                                <a href="#appointmentModal" data-bs-toggle="modal" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 shadow-xs">
+                                                    <i class="fa-regular fa-calendar-check fs-6"></i>
+                                                    <span>Book Service</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                            <!-- Card 4: Nearby Regional Corridors -->
-                                            <div class="col-sm-6 col-12 d-flex">
-                                                <div class="area-card w-100">
-                                                    <div class="area-card-header">
-                                                        <div class="area-icon-box"
-                                                            style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
-                                                            <i class="fa-solid fa-compass"></i>
-                                                        </div>
-                                                        <div>
-                                                            <span class="area-badge-primary"
-                                                                style="background: #FEF3C7; color: #B45309;">Nearby
-                                                                Corridors</span>
-                                                            <h4 class="fw-bold fs-5 mb-0 text-dark-navy">Nearby Areas
-                                                            </h4>
-                                                        </div>
+                                    <!-- Slide 3: Cuddalore -->
+                                    <div class="area-slide-single">
+                                        <div class="area-card w-100 shadow-sm border">
+                                            <div class="area-card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="area-icon-box" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                                        <i class="fa-solid fa-industry"></i>
                                                     </div>
-                                                    <p class="small text-muted mb-2">Luxury villa VRF systems,
-                                                        eco-friendly residences, and highway commercial projects.</p>
-                                                    <div class="area-locations-tags">
-                                                        <span class="location-tag">Auroville</span>
-                                                        <span class="location-tag">Marakkanam</span>
-                                                        <span class="location-tag">ECR Belt</span>
-                                                        <span class="location-tag">NH-45 Corridor</span>
-                                                        <span class="location-tag">Sedarapet</span>
-                                                        <span class="location-tag">JIPMER Area</span>
-                                                    </div>
-                                                    <ul class="area-features-list">
-                                                        <li><i class="fa-solid fa-circle-check"></i> Eco Inverter AC
-                                                            Units</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> Villa &amp; Resort
-                                                            VRF Experts</li>
-                                                        <li><i class="fa-solid fa-circle-check"></i> Priority Mobile
-                                                            Service Van</li>
-                                                    </ul>
-                                                    <div class="area-action-btns">
-                                                        <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Auroville%20or%20nearby%20area."
-                                                            target="_blank" class="btn-area-whatsapp"><i
-                                                                class="fa-brands fa-whatsapp fs-5"></i>
-                                                            WhatsApp</a>
+                                                    <div>
+                                                        <span class="area-badge-primary" style="background: #D1FAE5; color: #047857;">Coastal &amp; Industrial</span>
+                                                        <h3 class="fw-bold fs-4 mb-0 text-dark-navy">Cuddalore</h3>
                                                     </div>
                                                 </div>
+                                                <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill small">
+                                                    <i class="fa-regular fa-clock text-primary me-1"></i> Rapid Dispatch Hub
+                                                </span>
+                                            </div>
+                                            <p class="text-secondary small mb-3 lh-base">
+                                                Specialized coastal anti-corrosion blue-fin cooling units, turnkey industrial VRF plants, commercial cassette installations, and comprehensive AMC contracts for Cuddalore &amp; SIPCOT.
+                                            </p>
+                                            <div class="mb-3">
+                                                <div class="small fw-bold text-dark-navy mb-2 d-flex align-items-center gap-1">
+                                                    <i class="fa-solid fa-location-dot text-primary"></i>
+                                                    <span>Key Coverage Zones &amp; Localities:</span>
+                                                </div>
+                                                <div class="area-locations-tags">
+                                                    <span class="location-tag">Cuddalore Port</span>
+                                                    <span class="location-tag">Old Town (OT)</span>
+                                                    <span class="location-tag">Manjakuppam</span>
+                                                    <span class="location-tag">Panruti</span>
+                                                    <span class="location-tag">Neyveli</span>
+                                                    <span class="location-tag">Chidambaram</span>
+                                                    <span class="location-tag">SIPCOT Belt</span>
+                                                </div>
+                                            </div>
+                                            <div class="area-features-box p-3 rounded-3 mb-4">
+                                                <div class="row g-2">
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Anti-Corrosion Coastal Heavy-Duty ACs</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Industrial &amp; Commercial HVAC</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">On-Site Preventive Maintenance &amp; AMC</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Rapid Chemical Jet Washing Service</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="area-action-btns d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+                                                <a href="https://wa.me/919843020458?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Cuddalore." target="_blank" rel="noopener noreferrer" class="btn-area-whatsapp flex-grow-1">
+                                                    <i class="fa-brands fa-whatsapp fs-5"></i>
+                                                    <span>WhatsApp Cuddalore Team</span>
+                                                </a>
+                                                <a href="#appointmentModal" data-bs-toggle="modal" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 shadow-xs">
+                                                    <i class="fa-regular fa-calendar-check fs-6"></i>
+                                                    <span>Book Service</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 4: Nearby Regional Corridors -->
+                                    <div class="area-slide-single">
+                                        <div class="area-card w-100 shadow-sm border">
+                                            <div class="area-card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="area-icon-box" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
+                                                        <i class="fa-solid fa-compass"></i>
+                                                    </div>
+                                                    <div>
+                                                        <span class="area-badge-primary" style="background: #FEF3C7; color: #B45309;">Nearby Corridors</span>
+                                                        <h3 class="fw-bold fs-4 mb-0 text-dark-navy">Nearby Areas</h3>
+                                                    </div>
+                                                </div>
+                                                <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill small">
+                                                    <i class="fa-regular fa-clock text-primary me-1"></i> Rapid Dispatch Hub
+                                                </span>
+                                            </div>
+                                            <p class="text-secondary small mb-3 lh-base">
+                                                Premium villa VRF climate control, resort cooling solutions, highway commercial complexes, and priority mobile van service for regional connecting zones.
+                                            </p>
+                                            <div class="mb-3">
+                                                <div class="small fw-bold text-dark-navy mb-2 d-flex align-items-center gap-1">
+                                                    <i class="fa-solid fa-location-dot text-primary"></i>
+                                                    <span>Key Coverage Zones &amp; Localities:</span>
+                                                </div>
+                                                <div class="area-locations-tags">
+                                                    <span class="location-tag">Auroville</span>
+                                                    <span class="location-tag">Marakkanam</span>
+                                                    <span class="location-tag">ECR Coastal Belt</span>
+                                                    <span class="location-tag">NH-45 Corridor</span>
+                                                    <span class="location-tag">Sedarapet</span>
+                                                    <span class="location-tag">JIPMER Area</span>
+                                                </div>
+                                            </div>
+                                            <div class="area-features-box p-3 rounded-3 mb-4">
+                                                <div class="row g-2">
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Eco Ultra-Quiet Inverter AC Systems</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Villa &amp; Resort VRF Specialists</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Mobile Service Van with Precision Tools</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <i class="fa-solid fa-circle-check text-success fs-6 flex-shrink-0"></i>
+                                                            <span class="small text-dark-navy fw-medium">Prompt On-Call Preventive Servicing</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="area-action-btns d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+                                                <a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20need%20AC%20service%20in%20Auroville%20or%20nearby%20area." target="_blank" rel="noopener noreferrer" class="btn-area-whatsapp flex-grow-1">
+                                                    <i class="fa-brands fa-whatsapp fs-5"></i>
+                                                    <span>WhatsApp Nearby Team</span>
+                                                </a>
+                                                <a href="#appointmentModal" data-bs-toggle="modal" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 shadow-xs">
+                                                    <i class="fa-regular fa-calendar-check fs-6"></i>
+                                                    <span>Book Service</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1205,20 +1434,23 @@
                             </div>
 
                             <!-- Area Slider Controls: Progress Dots & Arrows -->
-                            <div class="d-flex align-items-center justify-content-between mt-4 pt-1">
-                                <div class="area-slider-dots d-flex align-items-center gap-2" id="areaSliderDots">
-                                    <button type="button" class="area-dot active" data-slide="0"
-                                        aria-label="Go to Slide 1"></button>
-                                    <button type="button" class="area-dot" data-slide="1"
-                                        aria-label="Go to Slide 2"></button>
+                            <div class="d-flex align-items-center justify-content-between mt-3 pt-1">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="area-slider-dots d-flex align-items-center gap-2" id="areaSliderDots">
+                                        <button type="button" class="area-dot active" data-slide="0" aria-label="Go to Pondicherry"></button>
+                                        <button type="button" class="area-dot" data-slide="1" aria-label="Go to Villupuram"></button>
+                                        <button type="button" class="area-dot" data-slide="2" aria-label="Go to Cuddalore"></button>
+                                        <button type="button" class="area-dot" data-slide="3" aria-label="Go to Nearby Areas"></button>
+                                    </div>
+                                    <span class="small text-muted fw-semibold" id="areaSlideCounter">
+                                        1 of 4 · Pondicherry
+                                    </span>
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
-                                    <button type="button" class="t-arrow-btn" id="areaPrevBtn"
-                                        aria-label="Previous service areas">
+                                    <button type="button" class="t-arrow-btn" id="areaPrevBtn" aria-label="Previous service areas">
                                         <i class="fa-solid fa-chevron-left"></i>
                                     </button>
-                                    <button type="button" class="t-arrow-btn" id="areaNextBtn"
-                                        aria-label="Next service areas">
+                                    <button type="button" class="t-arrow-btn" id="areaNextBtn" aria-label="Next service areas">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </button>
                                 </div>
